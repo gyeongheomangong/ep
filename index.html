@@ -1,0 +1,2373 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>近現代佛敎寫眞資料 — 鏡虛錄滿空法語編纂委員會收集本</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="fonts/nanum-gothic.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: dark;
+    --paper: #000000;
+    --paper-2: #14130f;
+    --card: #0d0c0a;
+    --ink: #f1ebdd;
+    --ink-soft: #a9a293;
+    --line: #2b2822;
+    --jade: #c9b98f;
+    --jade-soft: #8f8467;
+    --seal: #d97a63;
+    --focus: #e0c27a;
+    --overlay: rgba(0, 0, 0, 0.96);
+    --radius: 2px;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background-color:var(--paper);
+    background-image:linear-gradient(180deg, #25221d 0px, #0c0b09 360px, #000000 640px);
+    background-repeat:no-repeat;
+    color:var(--ink);
+    font-family:"Noto Sans KR", sans-serif;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    max-width:none;
+    margin:0 auto;
+    padding:80px 3.5vw 96px;
+  }
+
+  /* ---- 머리말: 책 표지(近現代佛敎 寫眞資料)와 통일감 ---- */
+  /* 머리말·탭·검색·목록·푸터를 카드 묶음과 같은 폭으로 맞춤 (JS가 --content-w 계산) */
+  .wrap > *{
+    max-width:var(--content-w, none);
+    margin-left:auto;
+    margin-right:auto;
+  }
+  header.page-head{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    align-items:end;
+    gap:34px 4vw;
+    margin-bottom:44px;
+    padding-bottom:32px;
+    border-bottom:1px solid var(--line);
+  }
+  .head-right .series-en{
+    font-family:"Noto Serif KR", serif;
+    font-size:12.67px;
+    letter-spacing:0.22em;
+    color:rgba(201,185,143,0.6);
+    margin:0 0 6px;
+  }
+  .head-right .series-en2{
+    font-family:"Noto Serif KR", serif;
+    font-weight:400;
+    font-style:italic;
+    font-size:13.67px;
+    color:var(--ink-soft);
+    margin:0 0 0;
+  }
+  .head-right{ text-align:left; order:-1; }
+  .head-right .series-en, .head-right .series-en2{ text-align:left; }
+  .head-text .book-title{
+    font-family:"Noto Serif KR", serif;
+    font-weight:700;
+    font-size:15.3px;
+    letter-spacing:-0.02em;
+    word-spacing:-0.25em;
+    margin:0 0 2px;
+    color:#d4b06a;
+  }
+  .head-text .book-title .no{
+    font-family:"Noto Sans KR", sans-serif;
+    font-weight:900;
+    font-size:0.78em;
+    color:#e8a23c;
+    margin-left:5px;
+    vertical-align:0.12em;
+  }
+  .head-text h1{
+    font-family:"Nanum Gothic","Noto Sans KR", sans-serif;
+    font-weight:400;
+    font-size:14.7px;
+    letter-spacing:-0.02em;
+    word-spacing:-0.12em;
+    margin:0 0 14px;
+    color:var(--ink-soft);
+  }
+  .head-text h1 #totalCount{
+    font-size:inherit; color:var(--jade); margin-left:0;
+    font-family:"Noto Sans KR","Noto Sans CJK KR",sans-serif; font-weight:500; letter-spacing:0;
+  }
+  .head-hanja{
+    font-family:"Noto Sans KR","Noto Sans CJK KR",sans-serif;
+    font-weight:900;
+    font-size:min(48px, 9.4vw);
+    display:flex;
+    width:fit-content;
+    background-image:linear-gradient(90deg,#e8a23c 0%,#c98a3f 22%,#a8683c 42%,#7d6a72 62%,#4a6a8f 82%,#2f5c92 100%);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent; color:transparent;
+    white-space:nowrap;
+    line-height:1.08;
+    letter-spacing:-0.02em;
+    text-align:left;
+    user-select:none;
+  }
+  .head-hanja span{
+    display:inline-block;
+    padding:0.08em 0.03em 0.02em;
+  }
+  @media (max-width:760px){
+    header.page-head{ grid-template-columns:1fr; }
+    .head-right{ order:-1; text-align:left; }
+    .head-right .series-en, .head-right .series-en2{ text-align:left; }
+    .head-hanja{ text-align:left; }
+  }
+
+
+  /* ---- 자료집 소개(해제·작업자·참고문헌) ---- */
+  .intro{ margin-top:72px; padding-top:22px; border-top:1px solid var(--line); }
+  .intro-panel:not([hidden]){ margin-bottom:14px; }
+  .intro[hidden]{ display:none; }
+  .intro-nav{ display:flex; flex-wrap:wrap; gap:4px 26px; }
+  .intro-nav button{
+    appearance:none; border:none; background:transparent; cursor:pointer;
+    font-family:"Nanum Gothic","Noto Sans KR",sans-serif; font-size:14.5px; letter-spacing:.02em;
+    color:#d4b06a; opacity:.7; padding:6px 0;
+    border-bottom:1px solid transparent; transition:opacity .15s ease, border-color .15s ease;
+  }
+  .intro-nav button:hover{ opacity:1; }
+  .intro-nav button.active{ opacity:1; font-weight:700; border-bottom-color:rgba(212,176,106,.7); }
+  .intro-panel{
+    margin-top:18px; max-width:760px;
+    font-family:"Nanum Gothic","Noto Sans KR",sans-serif; font-size:14.5px; line-height:1.9;
+    color:#e6dcc4; word-break:keep-all; word-spacing:-0.14em;
+  }
+  .intro-panel[hidden]{ display:none; }
+  .intro-panel .about-title{ margin:0 0 1px; font-size:17px; line-height:1.3; font-weight:700; color:#fff; letter-spacing:-0.01em; }
+  .intro-panel .about-by{ margin:0 0 20px; word-spacing:0; font-size:13px; line-height:1.4; color:#c9bda0; opacity:.85; }
+  .intro-panel .about-by b{ font-weight:700; color:#efe6d0; }
+  .intro-panel .sign{ margin-top:26px; text-align:right; line-height:1.8; color:#d9cfb6; }
+  .intro-panel .sign div:last-child{ margin-top:2px; font-weight:700; color:#fff; }
+  .intro-panel p{ margin:0 0 14px; text-align:justify; }
+  .credit-group{ margin:0 0 22px; padding-bottom:18px; border-bottom:1px solid rgba(239,231,212,.14); }
+  .credit-group .cg-sub{ font-size:12.5px; color:#c9bda0; opacity:.8; margin-bottom:2px; letter-spacing:.04em; }
+  .credit-group h4{ margin:0 0 10px; font-size:15.5px; font-weight:700; color:#d4b06a; letter-spacing:.06em; }
+  .cg-rows{ display:grid; gap:0 22px; line-height:1.5; }
+  .cg-rows.c2{ grid-template-columns:max-content 1fr; }
+  .cg-rows.c3{ grid-template-columns:max-content max-content 1fr; }
+  .cg-rows .cr{ color:#c9bda0; opacity:.85; font-size:12.5px; }
+  .cg-rows .cn{ color:#fff; }
+  .cg-rows .cn.wide{ grid-column:1 / -1; }
+  .cg-rows .co{ color:#d9cfb6; opacity:.9; font-size:12.5px; }
+  @media (max-width:560px){ .cg-rows.c3{ grid-template-columns:max-content 1fr; } .cg-rows.c3 .co{ grid-column:2; margin-top:-5px; } .cg-rows.c3 .cn.wide{ grid-column:2; } }
+  .intro-panel .credit{ display:grid; grid-template-columns:120px 1fr; gap:4px 20px; margin:0 0 10px; }
+  .intro-panel .credit dt{ color:#c9bda0; opacity:.8; }
+  .intro-panel .credit dd{ margin:0; }
+  .intro-panel ul{ list-style:none; margin:0; padding:0; word-spacing:0; }
+  .intro-panel a{ color:inherit; text-decoration:underline; text-decoration-color:rgba(212,176,106,.5); text-underline-offset:3px; }
+  .intro-panel a:hover{ color:#fff; text-decoration-color:#d4b06a; }
+  .intro-panel li{ padding-left:1.6em; text-indent:-1.6em; margin:0 0 1px; line-height:1.55; }
+  @media (max-width:560px){ .intro-panel .credit{ grid-template-columns:1fr; gap:0 } .intro-panel .credit dd{ margin-bottom:8px } }
+
+  .site-footer .foot-sub{ margin-top:12px; }
+  .site-footer{
+    margin-top:22px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    text-align:left;
+    font-size:12px;
+    line-height:1.8;
+    letter-spacing:0.02em;
+    color:var(--ink-soft);
+  }
+
+  .series-section{
+    margin-bottom:44px;
+  }
+  .series-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    padding-bottom:0;
+    margin-bottom:18px;
+  }
+
+  .tabbar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:4px 0;
+    margin-bottom:36px;
+  }
+  .tabbar button{
+    appearance:none;
+    border:none;
+    background:transparent;
+    color:var(--ink-soft);
+    opacity:.6;
+    font-family:"Noto Sans KR", sans-serif;
+    font-size:14.5px;
+    padding:8px 16px;
+    position:relative;
+    cursor:pointer;
+    transition:opacity .15s ease, color .15s ease;
+  }
+  .tabbar button:first-child{ padding-left:0; }
+  .tabbar button + button::before{
+    content:""; position:absolute; left:0; top:50%;
+    width:1px; height:12px; transform:translateY(-50%);
+    background:rgba(239,231,212,0.55);
+  }
+  .tabbar button sub{ font-size:0.72em; vertical-align:sub; line-height:0; margin-left:1px; font-weight:400; }
+  .tabbar button:hover{
+    opacity:.9;
+  }
+  .tabbar button.active{
+    color:#fff;
+    opacity:1;
+    font-weight:700;
+  }
+  .tabbar button:focus-visible{
+    outline:2px solid var(--focus);
+    outline-offset:2px;
+  }
+
+  .searchbar{
+    position:relative;
+    max-width:480px;
+    margin-bottom:24px;
+  }
+  .searchbar .mag{
+    position:absolute; left:16px; top:50%; transform:translateY(-50%);
+    width:20px; height:20px; pointer-events:none; color:var(--ink-soft);
+    fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round;
+    transition:color .15s ease;
+  }
+  .searchbar:focus-within .mag{ color:var(--jade); }
+  .searchbar input::-webkit-search-cancel-button{ -webkit-appearance:none; display:none; }
+  .searchbar input{
+    width:100%;
+    box-sizing:border-box;
+    appearance:none;
+    border:1px solid var(--line);
+    background:var(--card);
+    color:var(--ink);
+    font-family:"Noto Sans KR", sans-serif;
+    font-size:16px;
+    padding:15px 44px 15px 46px;
+    border-radius:4px;
+    outline:none;
+    transition:border-color .15s ease;
+  }
+  .searchbar input::placeholder{
+    color:var(--ink-soft);
+  }
+  .searchbar input:focus{
+    border-color:var(--jade);
+  }
+  .searchbar .clear-btn{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    appearance:none;
+    border:none;
+    background:none;
+    color:var(--ink-soft);
+    font-size:16px;
+    line-height:1;
+    cursor:pointer;
+    padding:6px;
+    display:none;
+  }
+  .searchbar.has-text .clear-btn{
+    display:block;
+  }
+  .search-result-head{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-bottom:16px;
+  }
+  .series-head .series-code{
+    font-family:"Noto Serif KR", serif;
+    font-weight:700;
+    font-size:20px;
+    color:var(--ink);
+    letter-spacing:0.01em;
+  }
+  .series-head .series-label{
+    font-size:14px;
+    color:var(--jade);
+    font-weight:500;
+  }
+  .series-head .series-count{
+    margin-left:auto;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    padding:3px 10px;
+    border-radius:20px;
+    white-space:nowrap;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, 190px);  /* 카드 크기 고정: 화면이 커지면 개수만 늘어남 */
+    justify-content:space-between;  /* 콘텐츠 폭이 열 수에 딱 맞아 간격은 항상 8px */
+    gap:8px;
+  }
+
+
+  /* ---- 도구줄: 검색 + 보기 전환 ---- */
+  .toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:24px;
+  }
+  .toolbar .searchbar{ margin-bottom:0; flex:1 1 280px; }
+  .viewtoggle{
+    display:inline-flex;
+    gap:4px;
+  }
+  .viewtoggle button{
+    appearance:none;
+    border:none;
+    background:transparent;
+    color:var(--ink-soft);
+    opacity:.5;
+    width:36px; height:36px;
+    padding:0;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    transition:opacity .15s ease, color .15s ease;
+  }
+  .viewtoggle button svg{ width:22px; height:22px; display:block; fill:currentColor; }
+  .viewtoggle button:hover{ opacity:.85; }
+  .viewtoggle button.active{
+    color:var(--jade);
+    opacity:1;
+  }
+
+  /* ---- 목록형 ---- */
+  .list{
+    display:flex;
+    flex-direction:column;
+    border-top:1px solid var(--line);
+  }
+  .list-row{
+    appearance:none;
+    display:grid;
+    grid-template-columns:52px 230px 90px 1fr;
+    align-items:center;
+    gap:16px;
+    width:100%;
+    text-align:left;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid var(--line);
+    color:var(--ink);
+    padding:8px 10px;
+    cursor:pointer;
+    font-family:"Noto Sans KR", sans-serif;
+    transition:background .15s ease;
+  }
+  .list-row:hover{ background:rgba(201,185,143,0.10); }
+  .list-row:focus-visible{ outline:2px solid var(--focus); outline-offset:-2px; }
+  .list-row .lthumb{
+    width:52px; height:68px;
+    object-fit:cover; object-position:center top;
+    background:var(--card);
+    display:block;
+  }
+  .list-row .lnum{ font-size:13px; color:var(--ink-soft); white-space:nowrap; }
+  .list-row .lnum .yr{ font-size:15px; font-weight:700; color:#f3e7c4; }
+  .list-row .lcat{ font-size:12px; color:var(--jade-soft); }
+  .list-row .lname{
+    font-family:"Nanum Gothic","Noto Sans KR",sans-serif;
+    font-size:16px; color:#fdf9ef; letter-spacing:-0.02em;
+    word-break:keep-all; overflow-wrap:anywhere;
+  }
+  @media (max-width:700px){
+    .list-row{ grid-template-columns:52px 1fr; gap:4px 12px; }
+    .list-row .lthumb{ grid-row:1 / span 3; }
+    .list-row .lcat{ display:none; }
+  }
+
+  .art-card{
+    background:var(--card);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:var(--radius);
+    overflow:hidden;
+    cursor:pointer;
+    text-align:left;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    font-family:inherit;
+    color:inherit;
+    transition:border-color .18s ease, transform .18s ease;
+  }
+  .art-card:hover{
+    border-color:rgba(201,185,143,0.65);
+    transform:translateY(-2px);
+  }
+  .art-card:focus-visible{
+    outline:2px solid var(--focus);
+    outline-offset:2px;
+  }
+
+  .art-card .thumb-holder{
+    position:relative;
+    aspect-ratio:3/4;
+    background:var(--paper-2);
+    overflow:hidden;
+  }
+  .art-card .thumb-holder img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center top;
+    display:block;
+  }
+  /* 썸네일 톤 다운 (원본·확대 이미지는 그대로) / 마우스를 올리면 원래 색으로 */
+  .art-card .thumb-holder img, .list-row .lthumb{
+    filter:brightness(.86) saturate(.9);
+    transition:filter .25s ease;
+  }
+  .art-card:hover .thumb-holder img, .art-card:focus-visible .thumb-holder img,
+  .list-row:hover .lthumb, .list-row:focus-visible .lthumb{
+    filter:none;
+  }
+  @media (hover:none){
+    .art-card .thumb-holder img, .list-row .lthumb{ filter:brightness(.93) saturate(.95); }
+  }
+  .art-card .thumb-holder::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,0.04);
+    pointer-events:none;
+  }
+  .art-card .scrim{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:62%;
+    background:linear-gradient(to top, rgba(18,16,11,0.82) 0%, rgba(18,16,11,0.45) 45%, rgba(18,16,11,0) 100%);
+    pointer-events:none;
+  }
+  .zoom-hint{
+    position:absolute;
+    right:8px;
+    top:8px;
+    background:rgba(28,25,19,0.72);
+    color:#efe7d4;
+    font-size:11px;
+    padding:4px 8px;
+    border-radius:2px;
+    letter-spacing:0.02em;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    opacity:0;
+    transform:translateY(-4px);
+    transition:opacity .18s ease, transform .18s ease;
+  }
+  .art-card:hover .zoom-hint,
+  .art-card:focus-visible .zoom-hint{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  .art-card .overlay-meta{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding:10px 10px 10px;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    text-align:left;
+  }
+  .art-card .overlay-meta .tag{
+    font-size:11px;
+    color:#d8cdae;
+    letter-spacing:0.03em;
+  }
+  .art-card .overlay-meta h2.file-id{
+    font-family:"Noto Sans KR", sans-serif;
+    font-size:11px;
+    font-weight:400;
+    margin:0;
+    line-height:1.5;
+    color:rgba(239,231,212,0.85);
+    white-space:nowrap;
+    letter-spacing:0;
+  }
+  .art-card .overlay-meta h2.file-id .yr{
+    font-size:13px;
+    font-weight:700;
+    color:#f3e7c4;
+    letter-spacing:0.02em;
+  }
+  .art-card .overlay-meta .file-name{
+    font-family:"Nanum Gothic", "Noto Sans KR", sans-serif;
+    font-size:14px;
+    font-weight:400;
+    letter-spacing:-0.04em;
+    margin:0;
+    line-height:1.35;
+    color:#fdf9ef;
+    word-break:keep-all;
+    overflow-wrap:anywhere;
+    text-shadow:0 1px 3px rgba(0,0,0,0.35);
+  }
+
+  /* ---- Lightbox ---- */
+  .lightbox{
+    position:fixed;
+    inset:0;
+    background:var(--overlay);
+    display:none;
+    align-items:stretch;
+    justify-content:stretch;
+    z-index:1000;
+  }
+  .lightbox.open{
+    display:flex;
+  }
+  .lightbox-top{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    padding:18px 20px;
+    gap:16px;
+    z-index:5;
+    pointer-events:none;
+  }
+  .lightbox-top > *{pointer-events:auto;}
+  .lightbox-title{
+    color:#efe7d4;
+    font-family:"Noto Sans KR", sans-serif;
+    font-size:14px;
+    line-height:1.6;
+    max-width:70%;
+  }
+  .lightbox-title .lb-id{
+    display:block;
+    word-break:break-all;
+    opacity:0.75;
+    font-size:12px;
+  }
+  .lightbox-title .lb-name{
+    display:block;
+    font-family:"Nanum Gothic", "Noto Sans KR", sans-serif;
+    font-size:18px;
+    font-weight:400;
+    letter-spacing:-0.02em;
+    margin-top:3px;
+    color:#efe7d4;
+  }
+  .lightbox-title .sub{
+    display:block;
+    font-family:"Noto Serif KR", serif;
+    font-size:12px;
+    color:#c9bda0;
+    margin-top:3px;
+  }
+  .lightbox-title{ display:none; }
+  .lightbox-title.open{
+    display:block;
+    background:rgba(14,12,9,0.88);
+    border:none;
+    border-radius:4px;
+    box-shadow:0 10px 36px rgba(0,0,0,0.5);
+    padding:14px 18px 16px;
+    min-width:240px;
+    max-height:calc(100vh - 100px);
+    overflow-y:auto;
+    -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+  }
+  .lightbox-title .lb-label{
+    display:block; font-size:11px; letter-spacing:.08em; color:#c9bda0; opacity:.7; margin-top:10px;
+  }
+  .lightbox-title .lb-label:first-child{ margin-top:0; }
+  .lightbox-title .lb-id, .lightbox-title .lb-name, .lightbox-title .sub{ margin-top:1px; }
+  .lightbox-title .lb-note{ display:block; font-family:"Nanum Gothic","Noto Sans KR",sans-serif; font-size:13px; line-height:1.65; color:#e6dcc4; max-width:min(560px, 78vw); margin-top:2px; word-break:keep-all; word-spacing:-0.14em; text-align:justify; }
+  .lightbox-title .lb-note + .lb-note{ margin-top:12px; }
+  .lightbox-title .lb-note.verse{ white-space:pre-line; text-align:left; }
+  .lb-btn.info{ font-family:"Noto Serif KR", serif; font-style:italic; font-size:24px; font-weight:500; }
+  .lb-btn{
+    appearance:none;
+    border:none;
+    background:transparent;
+    color:#fff;
+    width:46px;
+    height:46px;
+    font-size:28px;
+    font-weight:300;
+    line-height:1;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:.9;
+    transition:opacity .15s ease;
+  }
+  .lb-btn:hover{ opacity:1; }
+  .lb-btn:focus-visible{
+    outline:2px solid var(--focus);
+    outline-offset:2px;
+  }
+  .lb-controls{
+    margin-left:auto;
+    display:flex;
+    gap:8px;
+  }
+
+  .lb-stage{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    touch-action:none;
+    position:relative;
+  }
+  .lb-stage.grabbing{cursor:grabbing;}
+  .lb-stage.zoomed{cursor:grab;}
+  .lb-stage:not(.zoomed){cursor:zoom-in;}
+
+  .lb-img{
+    max-width:92vw;
+    max-height:86vh;
+    user-select:none;
+    -webkit-user-drag:none;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    background:#fff;
+    will-change:transform;
+    transform-origin:center center;
+    opacity:0;
+    transition:opacity .25s ease;
+  }
+  .lb-img.loaded{opacity:1;}
+
+  .lb-loading{
+    position:absolute;
+    color:#d8cdae;
+    font-size:13px;
+    letter-spacing:0.03em;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .lb-loading .dot{
+    width:6px;height:6px;border-radius:50%;
+    background:#d8cdae;
+    animation:pulse 1.1s ease-in-out infinite;
+  }
+  .lb-loading .dot:nth-child(2){animation-delay:.15s;}
+  .lb-loading .dot:nth-child(3){animation-delay:.3s;}
+  @keyframes pulse{
+    0%,80%,100%{opacity:.25; transform:scale(0.85);}
+    40%{opacity:1; transform:scale(1);}
+  }
+
+  .lightbox-bottom{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    display:flex;
+    justify-content:center;
+    padding:16px;
+    pointer-events:none;
+  }
+  .lightbox-bottom .hint{
+    pointer-events:auto;
+    color:#c9bda0;
+    font-size:12px;
+    background:rgba(28,25,19,0.55);
+    padding:6px 12px;
+    border-radius:20px;
+    letter-spacing:0.01em;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .art-card, .lb-img, .zoom-hint, .lb-btn{transition:none;}
+    .lb-loading .dot{animation:none;}
+  }
+
+  @media (max-width:560px){
+    .wrap{padding:36px 16px 72px;}
+    .grid{ grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); }
+    .lightbox-title{font-size:13px; max-width:60%;}
+  }
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="page-head">
+    <div class="head-text">
+      <p class="book-title">近現代佛敎文化寫眞 ARCHIVE 補遺<span class="no">01</span></p>
+      <h1>경허록만공법어편찬위원회수집본 <span id="totalCount"></span>장</h1>
+    </div>
+    <div class="head-right">
+      <p class="series-en2">Modern and Contemporary Korean Buddhism Photo Archives</p>
+      <div class="head-hanja" aria-hidden="true">
+        <span class="h1">近現代佛敎</span>
+        <span class="h2">寫眞資料</span>
+      </div>
+    </div>
+  </header>
+
+
+  <nav class="tabbar" id="tabbar"></nav>
+
+  <div class="toolbar">
+    <div class="searchbar" id="searchbar">
+      <svg class="mag" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg>
+      <input type="search" id="searchInput" aria-label="검색 (번호, 이름, 연도)" autocomplete="off">
+      <button type="button" class="clear-btn" id="searchClear" aria-label="검색어 지우기">&#10005;</button>
+    </div>
+    <div class="viewtoggle" id="viewToggle" role="group" aria-label="보기 방식">
+      <button type="button" data-view="grid" class="active" title="썸네일형" aria-label="썸네일형"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></button>
+      <button type="button" data-view="list" title="목록형" aria-label="목록형"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="17" width="18" height="3" rx="1"/></svg></button>
+    </div>
+  </div>
+
+  <div id="sections"></div>
+
+  <!-- 자료집 소개: 해제 · 작업자 · 참고문헌 (내용이 있는 항목만 표시) -->
+  <section class="intro" id="intro" hidden>
+    <div class="intro-nav" id="introNav"></div>
+    <div class="intro-panel" id="introPanel" hidden></div>
+  </section>
+
+  <footer class="site-footer">
+    <div>copyright © 1997-2026 Institute of EBTC. 모든 권리 보유.</div>
+    <div class="foot-sub">전자불전문화콘텐츠연구소 | 04626 서울 중구 퇴계로 36길 2 동국대학교 충무로영상센터 본관 313호</div>
+    <div>313, Chumgmuro Image center, main B/D 2, Toegye-ro 36-gil, Jung-gu, Seoul, Republic of Korea</div>
+    <div class="foot-sub">대한불교조계종 제7교구 본사 덕숭총림 수덕사 | 32409 충청남도 예산군 덕산면 수덕사 안길 79</div>
+    <div>79, Sudeoksaan-gil, Deoksan-myeon, Yesan-gun, Chungcheongnam-do, Republic of Korea (32409)</div>
+  </footer>
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="원본 이미지 보기">
+  <div class="lightbox-top">
+    <div class="lightbox-title" id="lbTitle"></div>
+    <div class="lb-controls">
+      <button class="lb-btn info" id="infoBtn" title="정보" aria-label="정보" aria-expanded="false">i</button>
+      <button class="lb-btn" id="zoomOutBtn" title="축소" aria-label="축소">&#8722;</button>
+      <button class="lb-btn" id="zoomInBtn" title="확대" aria-label="확대">&#43;</button>
+      <button class="lb-btn" id="closeBtn" title="닫기 (Esc)" aria-label="닫기">&#10005;</button>
+    </div>
+  </div>
+  <div class="lb-stage" id="lbStage">
+    <div class="lb-loading" id="lbLoading"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <img class="lb-img" id="lbImg" alt="">
+  </div>
+  <div class="lightbox-bottom">
+    <span class="hint">클릭 또는 휠로 확대 · 드래그로 이동 · Esc 닫기</span>
+  </div>
+</div>
+
+<script>
+  // ---- 자료 목록: 새 자료를 추가하려면 이 배열에 항목을 더하면 됩니다 ----
+  const ARTIFACTS = [
+    {
+      id: "EP01-01-0001-X0000_병풍_심우도 6곡",
+      tag: "병풍 · 연도미상",
+      thumb: "images/EP01-01-0001-X0000_병풍_심우도_6곡_thumb.jpg",
+      full: "images/EP01-01-0001-X0000_병풍_심우도_6곡_full.jpg"
+    },
+    {
+      id: "EP01-01-0002-X0000_병풍_경허성우참선법문10곡병풍",
+      tag: "병풍 · 연도미상",
+      thumb: "images/EP01-01-0002-X0000_병풍_경허성우참선법문10곡병풍_thumb.jpg",
+      full: "images/EP01-01-0002-X0000_병풍_경허성우참선법문10곡병풍_full.jpg"
+    },
+    {
+      id: "EP01-01-0003-X0000_병풍_심우송 8곡",
+      tag: "병풍 · 연도미상",
+      thumb: "images/EP01-01-0003-X0000_병풍_심우송_8곡_thumb.jpg",
+      full: "images/EP01-01-0003-X0000_병풍_심우송_8곡_full.jpg"
+    },
+    {
+      id: "EP01-01-0003-Y1902_전법게_염득분명",
+      tag: "전법게 · 1902",
+      thumb: "images/ep01-01-0003_thumb.jpg",
+      full: "images/ep01-01-0003_full.jpg"
+    },
+    {
+      id: "EP01-01-0004-Y1916_병풍_원담스님 심우송 8곡병풍",
+      tag: "병풍 · 1916",
+      thumb: "images/EP01-01-0004-Y1916_병풍_원담스님_심우송_8곡병풍_thumb.jpg",
+      full: "images/EP01-01-0004-Y1916_병풍_원담스님_심우송_8곡병풍_full.jpg"
+    },
+    {
+      id: "EP01-01-0005-X0000_병풍_경허선사참선법문10곡",
+      tag: "병풍 · 연도미상",
+      thumb: "images/EP01-01-0005-X0000_병풍_경허선사참선법문10곡_thumb.jpg",
+      full: "images/EP01-01-0005-X0000_병풍_경허선사참선법문10곡_full.jpg"
+    },
+    {
+      id: "EP01-01-0006-Y1904_전법게_수산만공1",
+      note: "경허선사가 만공선사에게 전한 전법게로 ‘叟山滿空’으로 되어있다. 날짜와 장소는 갑진년(1904)년 ‘天藏禪室’로 되어있다. 1982년판 ⟪경허집⟫에 역상으로 사진으로 실려있기에 두 장 모두 수록하였다.",
+      tag: "전법게 · 1904",
+      thumb: "images/EP01-01-0006-Y1904_전법게_수산만공1_thumb.jpg",
+      full: "images/EP01-01-0006-Y1904_전법게_수산만공1_full.jpg"
+    },
+    {
+      id: "EP01-01-0007-Y1904_전법게_수산만공2",
+      note: "경허선사가 만공선사에게 전한 전법게로 ‘叟山滿空’으로 되어있다. 날짜와 장소는 갑진년(1904)년 ‘天藏禪室’로 되어있다. 1982년판 ⟪경허집⟫에 역상으로 사진으로 실려있기에 두 장 모두 수록하였다.",
+      tag: "전법게 · 1904",
+      thumb: "images/EP01-01-0007-Y1904_전법게_수산만공2_thumb.jpg",
+      full: "images/EP01-01-0007-Y1904_전법게_수산만공2_full.jpg"
+    },
+    {
+      id: "EP01-01-0008-Y1902_전법게_혜월혜명",
+      tag: "전법게 · 1902",
+      thumb: "images/EP01-01-0008-Y1902_전법게_혜월혜명_thumb.jpg",
+      full: "images/EP01-01-0008-Y1902_전법게_혜월혜명_full.jpg"
+    },
+    {
+      id: "EP01-01-0009-Y1913_전법게_보월성인",
+      note: "만공선사의 첫 전법제자로 알려진 보월성인(寶月性印, 1884-1924)에게 준 전법게이다. 만공스님의 형인 대은스님이 보월성인을 만공선사와 인연을 맺어주었다는 이야기가 전한다. 보월성인은 특히 큰 문도를 이룬 금오태전의 스승이기도 하다. 전법게의 날짜는 1913. 12.26로 되어있다.",
+      tag: "전법게 · 1913",
+      thumb: "images/EP01-01-0009-Y1913_전법게_보월성인_thumb.jpg",
+      full: "images/EP01-01-0009-Y1913_전법게_보월성인_full.jpg"
+    },
+    {
+      id: "EP01-01-0010-Y1929_전법게_현문혜암",
+      tag: "전법게 · 1929",
+      thumb: "images/EP01-01-0010-Y1929_전법게_현문혜암_thumb.jpg",
+      full: "images/EP01-01-0010-Y1929_전법게_현문혜암_full.jpg"
+    },
+    {
+      id: "EP01-01-0011-Y1937_전법게_선옹효봉",
+      tag: "전법게 · 1937",
+      thumb: "images/EP01-01-0011-Y1937_전법게_선옹효봉_thumb.jpg",
+      full: "images/EP01-01-0011-Y1937_전법게_선옹효봉_full.jpg"
+    },
+    {
+      id: "EP01-01-0012-Y1945_전법게_동산혜일",
+      tag: "전법게 · 1945",
+      thumb: "images/EP01-01-0012-Y1945_전법게_동산혜일_thumb.jpg",
+      full: "images/EP01-01-0012-Y1945_전법게_동산혜일_full.jpg"
+    },
+    {
+      id: "EP01-01-0013-Y1934_전법게_백련도엽",
+      tag: "전법게 · 1934",
+      thumb: "images/EP01-01-0013-Y1934_전법게_백련도엽_thumb.jpg",
+      full: "images/EP01-01-0013-Y1934_전법게_백련도엽_full.jpg"
+    },
+    {
+      id: "EP01-01-0014_Y1918_전법게_무염무현",
+      tag: "전법게 · 1918",
+      thumb: "images/EP01-01-0014_Y1918_전법게_무염무현_thumb.jpg",
+      full: "images/EP01-01-0014_Y1918_전법게_무염무현_full.jpg"
+    },
+    {
+      id: "EP01-01-0015-Y1916_전법게_태수",
+      tag: "전법게 · 1916",
+      thumb: "images/EP01-01-0015-Y1916_전법게_태수_thumb.jpg",
+      full: "images/EP01-01-0015-Y1916_전법게_태수_full.jpg"
+    },
+    {
+      id: "EP01-01-0016-Y1916_전법게_묘리법희",
+      tag: "전법게 · 1916",
+      thumb: "images/EP01-01-0016-Y1916_전법게_묘리법희_thumb.jpg",
+      full: "images/EP01-01-0016-Y1916_전법게_묘리법희_full.jpg"
+    },
+    {
+      id: "EP01-01-0017-Y1916_전법게_묘리법희2",
+      tag: "전법게 · 1916",
+      thumb: "images/EP01-01-0017-Y1916_전법게_묘리법희2_thumb.jpg",
+      full: "images/EP01-01-0017-Y1916_전법게_묘리법희2_full.jpg"
+    },
+    {
+      id: "EP01-01-0018-Y1939_전법게_배상식진여",
+      tag: "전법게 · 1939",
+      thumb: "images/EP01-01-0018-Y1939_전법게_배상식진여_thumb.jpg",
+      full: "images/EP01-01-0018-Y1939_전법게_배상식진여_full.jpg",
+      note: "배상식 진여거사에게 준 것으로 1939년에 쓴 것이다. 김설월 방우거사와 함께 재가자에게 준 만공스님의 전법게 중 하나이다. 한 때 출가했다고 알려져 있으나 전법게에 거사로 명시되어 있고, 안거증에도 이름만 있으므로, 분명치 않다. 배상식과 관련해서는 이 전법게와 안거증이 있다. 진여거사 배상식은 원응구한(元應久閑, 1935~2018)의 부친으로 알려져 있다."
+    },
+    {
+      id: "EP01-01-0019-Y1938_전법게_자명시택",
+      tag: "전법게 · 1938",
+      thumb: "images/EP01-01-0019-Y1938_전법게_자명시택_thumb.jpg",
+      full: "images/EP01-01-0019-Y1938_전법게_자명시택_full.jpg"
+    },
+    {
+      id: "EP01-01-0020-Y1940_전법게_반야백천",
+      tag: "전법게 · 1940",
+      thumb: "images/EP01-01-0020-Y1940_전법게_반야백천_thumb.jpg",
+      full: "images/EP01-01-0020-Y1940_전법게_반야백천_full.jpg"
+    },
+    {
+      id: "EP01-01-0021-Y1939_전법게_김설월방우",
+      tag: "전법게 · 1939",
+      thumb: "images/EP01-01-0021-Y1939_전법게_김설월방우_thumb.jpg",
+      full: "images/EP01-01-0021-Y1939_전법게_김설월방우_full.jpg",
+      note: "현존하는 10여장의 전법게 중 하나로 김설월 방우거사에게 준 전법게. 1939.06.10일로 날짜가 되어 있다."
+    },
+    {
+      id: "EP01-01-0022-X2024_전법게_등등상속",
+      tag: "전법게 · 연도미상",
+      thumb: "images/EP01-01-0022-X2024_전법게_등등상속_thumb.jpg",
+      full: "images/EP01-01-0022-X2024_전법게_등등상속_full.jpg"
+    },
+    {
+      id: "EP01-01-0023_Y1950_서첩_불교시보권수참선문 1",
+      tag: "서첩 · 1950",
+      thumb: "images/EP01-01-0023_Y1950_서첩_불교시보권수참선문_1_thumb.jpg",
+      full: "images/EP01-01-0023_Y1950_서첩_불교시보권수참선문_1_full.jpg"
+    },
+    {
+      id: "EP01-01-0024-X0000_서첩_불교_경허화상행장심우가1",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0024-X0000_서첩_불교_경허화상행장심우가1_thumb.jpg",
+      full: "images/EP01-01-0024-X0000_서첩_불교_경허화상행장심우가1_full.jpg"
+    },
+    {
+      id: "EP01-01-0024-X0000_서첩_불교_경허화상행장심우가2",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0024-X0000_서첩_불교_경허화상행장심우가2_thumb.jpg",
+      full: "images/EP01-01-0024-X0000_서첩_불교_경허화상행장심우가2_full.jpg"
+    },
+    {
+      id: "EP01-01-0025-X0000_서첩_불교_경허화상행장1jpg",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0025-X0000_서첩_불교_경허화상행장1jpg_thumb.jpg",
+      full: "images/EP01-01-0025-X0000_서첩_불교_경허화상행장1jpg_full.jpg"
+    },
+    {
+      id: "EP01-01-0025-X0000_서첩_불교_경허화상행장2",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0025-X0000_서첩_불교_경허화상행장2_thumb.jpg",
+      full: "images/EP01-01-0025-X0000_서첩_불교_경허화상행장2_full.jpg"
+    },
+    {
+      id: "EP01-01-0026-Y1931_서첩_경허집 한암육필원고 월정사본 표지",
+      note: "1931년 월정사본(한암선사필사본)은 경허집 중 가장 오래된 판본으로 한암선사의 친필 필사본이며 김민영 선생이 소장하고 있고 2009년 4월에 월정사에서 500부 한정 영인한 바 있다.",
+      tag: "서첩 · 1931",
+      thumb: "images/EP01-01-0026-Y1931_서첩_경허집_한암육필원고_월정사본_표지_thumb.jpg",
+      full: "images/EP01-01-0026-Y1931_서첩_경허집_한암육필원고_월정사본_표지_full.jpg"
+    },
+    {
+      id: "EP01-01-0026-Y1931_서첩_경허집_한암육필원고_월정사본",
+      note: "1931년 월정사본(한암선사필사본)은 경허집 중 가장 오래된 판본으로 한암선사의 친필 필사본이며 김민영 선생이 소장하고 있고 2009년 4월에 월정사에서 500부 한정 영인한 바 있다.",
+      tag: "서첩 · 1931",
+      thumb: "images/EP01-01-0026-Y1931_서첩_경허집_한암육필원고_월정사본_thumb.jpg",
+      full: "images/EP01-01-0026-Y1931_서첩_경허집_한암육필원고_월정사본_full.jpg"
+    },
+    {
+      id: "EP01-01-0027-Y1943_서첩_경허집 초간본 선학원본 鏡虛集初刊本",
+      tag: "서첩 · 1943",
+      thumb: "images/EP01-01-0027-Y1943_서첩_경허집_초간본_선학원본_鏡虛集初刊本_thumb.jpg",
+      full: "images/EP01-01-0027-Y1943_서첩_경허집_초간본_선학원본_鏡虛集初刊本_full.jpg",
+      note: "1943년 선학원본(만해 한용운 집필)으로 활자본이다."
+    },
+    {
+      id: "EP01-01-0027-Y1943_서첩_경허집 초간본 선학원본 표지",
+      tag: "서첩 · 1943",
+      thumb: "images/EP01-01-0027-Y1943_서첩_경허집_초간본_선학원본_표지_thumb.jpg",
+      full: "images/EP01-01-0027-Y1943_서첩_경허집_초간본_선학원본_표지_full.jpg",
+      note: "1943년 선학원본(만해 한용운 집필)으로 활자본이다."
+    },
+    {
+      id: "EP01-01-0028-X0000_서첩_참선곡 목판본",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0028-X0000_서첩_참선곡_목판본_thumb.jpg",
+      full: "images/EP01-01-0028-X0000_서첩_참선곡_목판본_full.jpg"
+    },
+    {
+      id: "EP01-01-0029-X0000_서첩_십지론",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0029-X0000_서첩_십지론_thumb.jpg",
+      full: "images/EP01-01-0029-X0000_서첩_십지론_full.jpg"
+    },
+    {
+      id: "EP01-01-0030-Y1892_서첩_경허필 참선가",
+      tag: "서첩 · 1892",
+      thumb: "images/EP01-01-0030-Y1892_서첩_경허필_참선가_thumb.jpg",
+      full: "images/EP01-01-0030-Y1892_서첩_경허필_참선가_full.jpg"
+    },
+    {
+      id: "EP01-01-0031-X0000_서첩_정혜사 능인선회방함",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0031-X0000_서첩_정혜사_능인선회방함_thumb.jpg",
+      full: "images/EP01-01-0031-X0000_서첩_정혜사_능인선회방함_full.jpg"
+    },
+    {
+      id: "EP01-01-0032-X0000_서첩_벽초선사사경집",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0032-X0000_서첩_벽초선사사경집_thumb.jpg",
+      full: "images/EP01-01-0032-X0000_서첩_벽초선사사경집_full.jpg"
+    },
+    {
+      id: "EP01-01-0033-X0000_서첩_벽초선사사경집",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0033-X0000_서첩_벽초선사사경집_thumb.jpg",
+      full: "images/EP01-01-0033-X0000_서첩_벽초선사사경집_full.jpg"
+    },
+    {
+      id: "EP01-01-0034-L1982_서첩_정혜사 능인선회방함 서문",
+      tag: "서첩 · 1982",
+      thumb: "images/EP01-01-0034-L1982_서첩_정혜사_능인선회방함_서문_thumb.jpg",
+      full: "images/EP01-01-0034-L1982_서첩_정혜사_능인선회방함_서문_full.jpg"
+    },
+    {
+      id: "EP01-01-0035-X0000_서첩_견성암방함록 책 2 32-00",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0035-X0000_서첩_견성암방함록_책_2_32-00_thumb.jpg",
+      full: "images/EP01-01-0035-X0000_서첩_견성암방함록_책_2_32-00_full.jpg"
+    },
+    {
+      id: "EP01-01-0035-X0000_서첩_정혜사 능인선회방함",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0035-X0000_서첩_정혜사_능인선회방함_thumb.jpg",
+      full: "images/EP01-01-0035-X0000_서첩_정혜사_능인선회방함_full.jpg"
+    },
+    {
+      id: "EP01-01-0035-X0000_서첩_정혜사 능인선회방함 서문",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0035-X0000_서첩_정혜사_능인선회방함_서문_thumb.jpg",
+      full: "images/EP01-01-0035-X0000_서첩_정혜사_능인선회방함_서문_full.jpg"
+    },
+    {
+      id: "EP01-01-0036-X0000_서첩_견성암방함록 책 2",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0036-X0000_서첩_견성암방함록_책_2_thumb.jpg",
+      full: "images/EP01-01-0036-X0000_서첩_견성암방함록_책_2_full.jpg"
+    },
+    {
+      id: "EP01-01-0037-X0000_서첩_견성암방함록2",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0037-X0000_서첩_견성암방함록2_thumb.jpg",
+      full: "images/EP01-01-0037-X0000_서첩_견성암방함록2_full.jpg"
+    },
+    {
+      id: "EP01-01-0038-Y1928_서첩_견성암방함록",
+      tag: "서첩 · 1928",
+      thumb: "images/EP01-01-0038-Y1928_서첩_견성암방함록_thumb.jpg",
+      full: "images/EP01-01-0038-Y1928_서첩_견성암방함록_full.jpg"
+    },
+    {
+      id: "EP01-01-0038-Y1928_서첩_견성암방함록2",
+      tag: "서첩 · 1928",
+      thumb: "images/EP01-01-0038-Y1928_서첩_견성암방함록2_thumb.jpg",
+      full: "images/EP01-01-0038-Y1928_서첩_견성암방함록2_full.jpg"
+    },
+    {
+      id: "EP01-01-0039-Y1911_서첩_총섭방함록2",
+      tag: "서첩 · 1911",
+      thumb: "images/EP01-01-0039-Y1911_서첩_총섭방함록2_thumb.jpg",
+      full: "images/EP01-01-0039-Y1911_서첩_총섭방함록2_full.jpg"
+    },
+    {
+      id: "EP01-01-0040-Y1945_서첩_불교시보권수참선문 2",
+      tag: "서첩 · 1945",
+      thumb: "images/EP01-01-0040-Y1945_서첩_불교시보권수참선문_2_thumb.jpg",
+      full: "images/EP01-01-0040-Y1945_서첩_불교시보권수참선문_2_full.jpg"
+    },
+    {
+      id: "EP01-01-0041-X0000_서첩_해인사 수선방함3",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0041-X0000_서첩_해인사_수선방함3_thumb.jpg",
+      full: "images/EP01-01-0041-X0000_서첩_해인사_수선방함3_full.jpg"
+    },
+    {
+      id: "EP01-01-0042-Y1911_서첩_총섭방함록1",
+      tag: "서첩 · 1911",
+      thumb: "images/EP01-01-0042-Y1911_서첩_총섭방함록1_thumb.jpg",
+      full: "images/EP01-01-0042-Y1911_서첩_총섭방함록1_full.jpg"
+    },
+    {
+      id: "EP01-01-0043-X0000_서첩_해인사 수선방함2",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0043-X0000_서첩_해인사_수선방함2_thumb.jpg",
+      full: "images/EP01-01-0043-X0000_서첩_해인사_수선방함2_full.jpg"
+    },
+    {
+      id: "EP01-01-0044-X0000_서첩_해인사 수선방함1",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0044-X0000_서첩_해인사_수선방함1_thumb.jpg",
+      full: "images/EP01-01-0044-X0000_서첩_해인사_수선방함1_full.jpg"
+    },
+    {
+      id: "EP01-01-0045-X0000_서첩_만공월면선사실기",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0045-X0000_서첩_만공월면선사실기_thumb.jpg",
+      full: "images/EP01-01-0045-X0000_서첩_만공월면선사실기_full.jpg"
+    },
+    {
+      id: "EP01-01-0046-L1981_서첩_해인사 수선사 법필",
+      tag: "서첩 · 1981",
+      thumb: "images/EP01-01-0046-L1981_서첩_해인사_수선사_법필_thumb.jpg",
+      full: "images/EP01-01-0046-L1981_서첩_해인사_수선사_법필_full.jpg"
+    },
+    {
+      id: "EP01-01-0047-Y1904_서첩_수다나태자경 한글",
+      tag: "서첩 · 1904",
+      thumb: "images/EP01-01-0047-Y1904_서첩_수다나태자경_한글_thumb.jpg",
+      full: "images/EP01-01-0047-Y1904_서첩_수다나태자경_한글_full.jpg"
+    },
+    {
+      id: "EP01-01-0048-X0000_서첩_태허스님 필사본",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0048-X0000_서첩_태허스님_필사본_thumb.jpg",
+      full: "images/EP01-01-0048-X0000_서첩_태허스님_필사본_full.jpg"
+    },
+    {
+      id: "EP01-01-0049-X0000_서첩_만공필화1",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0049-X0000_서첩_만공필화1_thumb.jpg",
+      full: "images/EP01-01-0049-X0000_서첩_만공필화1_full.jpg"
+    },
+    {
+      id: "EP01-01-0050-X0000_서첩_만공필화2",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0050-X0000_서첩_만공필화2_thumb.jpg",
+      full: "images/EP01-01-0050-X0000_서첩_만공필화2_full.jpg"
+    },
+    {
+      id: "EP01-01-0051-X0000_서첩_만공필화3",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0051-X0000_서첩_만공필화3_thumb.jpg",
+      full: "images/EP01-01-0051-X0000_서첩_만공필화3_full.jpg"
+    },
+    {
+      id: "EP01-01-0052-X0000_서첩_만공필화4",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0052-X0000_서첩_만공필화4_thumb.jpg",
+      full: "images/EP01-01-0052-X0000_서첩_만공필화4_full.jpg"
+    },
+    {
+      id: "EP01-01-0053-X0000_서첩_만공필화4EP01--0051-Y1934_한글서간문2",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0053-X0000_서첩_만공필화4EP01--0051-Y1934_한글서간문2_thumb.jpg",
+      full: "images/EP01-01-0053-X0000_서첩_만공필화4EP01--0051-Y1934_한글서간문2_full.jpg"
+    },
+    {
+      id: "EP01-01-0054-Y1936_서첩_불교시보 경허대사시중",
+      tag: "서첩 · 1936",
+      thumb: "images/EP01-01-0054-Y1936_서첩_불교시보_경허대사시중_thumb.jpg",
+      full: "images/EP01-01-0054-Y1936_서첩_불교시보_경허대사시중_full.jpg"
+    },
+    {
+      id: "EP01-01-0055-Y1929_서첩_벽초선사사경집",
+      tag: "서첩 · 1929",
+      thumb: "images/EP01-01-0055-Y1929_서첩_벽초선사사경집_thumb.jpg",
+      full: "images/EP01-01-0055-Y1929_서첩_벽초선사사경집_full.jpg"
+    },
+    {
+      id: "EP01-01-0056-X0000_서첩_태허스님 필사본2",
+      tag: "서첩 · 연도미상",
+      thumb: "images/EP01-01-0056-X0000_서첩_태허스님_필사본2_thumb.jpg",
+      full: "images/EP01-01-0056-X0000_서첩_태허스님_필사본2_full.jpg"
+    },
+    {
+      id: "EP01-01-0057-Y1942_서첩_경허집발간취지서",
+      note: "경허집발간취지서는 1943년 중앙선원(선학원)본 만해 한용운의 경허집을 발간할 때 쓴 것으로 보이는 문서이다. 성월일전(惺月一全, 1865~1943), 석우보화(石友普化, 1875~1958), 구하천보(九河天輔, 1872~1965) 등 46명의 잘 알려진 스님들의 명단이 실려있어서 그들이 경허집을 발간할 때 동참하였음을 알 수 있게 해 주는 자료이다.",
+      tag: "서첩 · 1942",
+      thumb: "images/EP01-01-0057-Y1942_서첩_경허집발간취지서_thumb.jpg",
+      full: "images/EP01-01-0057-Y1942_서첩_경허집발간취지서_full.jpg"
+    },
+    {
+      id: "EP01-01-0058-Y1934_안거증_동산",
+      tag: "안거증 · 1934",
+      thumb: "images/EP01-01-0058-Y1934_안거증_동산_thumb.jpg",
+      full: "images/EP01-01-0058-Y1934_안거증_동산_full.jpg"
+    },
+    {
+      id: "EP01-01-0059-Y1933_안거증_동산",
+      tag: "안거증 · 1933",
+      thumb: "images/EP01-01-0059-Y1933_안거증_동산_thumb.jpg",
+      full: "images/EP01-01-0059-Y1933_안거증_동산_full.jpg"
+    },
+    {
+      id: "EP01-01-0061-Y1934_안거증_한상용",
+      tag: "안거증 · 1934",
+      thumb: "images/EP01-01-0061-Y1934_안거증_한상용_thumb.jpg",
+      full: "images/EP01-01-0061-Y1934_안거증_한상용_full.jpg"
+    },
+    {
+      id: "EP01-01-0062-Y1934_안거증_한상용",
+      tag: "안거증 · 1934",
+      thumb: "images/EP01-01-0062-Y1934_안거증_한상용_thumb.jpg",
+      full: "images/EP01-01-0062-Y1934_안거증_한상용_full.jpg"
+    },
+    {
+      id: "EP01-01-0064-Y1935_안거증_한상용",
+      tag: "안거증 · 1935",
+      thumb: "images/EP01-01-0064-Y1935_안거증_한상용_thumb.jpg",
+      full: "images/EP01-01-0064-Y1935_안거증_한상용_full.jpg"
+    },
+    {
+      id: "EP01-01-0065-Y1936_안거증_한유일",
+      tag: "안거증 · 1936",
+      thumb: "images/EP01-01-0065-Y1936_안거증_한유일_thumb.jpg",
+      full: "images/EP01-01-0065-Y1936_안거증_한유일_full.jpg"
+    },
+    {
+      id: "EP01-01-0066-Y1935_안거증_김만혜",
+      tag: "안거증 · 1935",
+      thumb: "images/EP01-01-0066-Y1935_안거증_김만혜_thumb.jpg",
+      full: "images/EP01-01-0066-Y1935_안거증_김만혜_full.jpg"
+    },
+    {
+      id: "EP01-01-0067-Y1939_안거증_배상식",
+      tag: "안거증 · 1939",
+      thumb: "images/EP01-01-0067-Y1939_안거증_배상식_thumb.jpg",
+      full: "images/EP01-01-0067-Y1939_안거증_배상식_full.jpg",
+      note: "배상식 진여거사에게 준 것으로 1939년에 쓴 것이다. 김설월 방우거사와 함께 재가자에게 준 만공스님의 전법게 중 하나이다. 한 때 출가했다고 알려져 있으나 전법게에 거사로 명시되어 있고, 안거증에도 이름만 있으므로, 분명치 않다. 배상식과 관련해서는 이 전법게와 안거증이 있다. 진여거사 배상식은 원응구한(元應久閑, 1935~2018)의 부친으로 알려져 있다."
+    },
+    {
+      id: "EP01-01-0068-Y1934_안거증_대석",
+      tag: "안거증 · 1934",
+      thumb: "images/EP01-01-0068-Y1934_안거증_대석_thumb.jpg",
+      full: "images/EP01-01-0068-Y1934_안거증_대석_full.jpg"
+    },
+    {
+      id: "EP01-01-0069-X0000_영찬_용은대사",
+      tag: "영찬 · 연도미상",
+      thumb: "images/EP01-01-0069-X0000_영찬_용은대사_thumb.jpg",
+      full: "images/EP01-01-0069-X0000_영찬_용은대사_full.jpg"
+    },
+    {
+      id: "EP01-01-0070-X0000_영찬_인봉학서",
+      tag: "영찬 · 연도미상",
+      thumb: "images/EP01-01-0070-X0000_영찬_인봉학서_thumb.jpg",
+      full: "images/EP01-01-0070-X0000_영찬_인봉학서_full.jpg",
+      note: "용은맹윤(龍隱孟允, 1827-1899)의 진영에 대한 영찬과 인봉학서(茵峰鶴西)의 영찬이다. 특히 용은맹윤선사의 행장은 1901년에 풍계楓溪스님의 요청에 의해서 선사가 직접 집필한 것으로 경허집에 실려있다."
+    },
+    {
+      id: "EP01-01-0071-X0000_영찬_대연정첨",
+      tag: "영찬 · 연도미상",
+      thumb: "images/EP01-01-0071-X0000_영찬_대연정첨_thumb.jpg",
+      full: "images/EP01-01-0071-X0000_영찬_대연정첨_full.jpg",
+      note: "호은문성(虎隱文性, 1850-1918)은 은사인 금우필기(錦雨弼基)의 진영을 화주하면서 대교(大敎)와 선전(禪典)을 배웠던 스승 대연정첨(大淵正添, 1873-1899?)의 진영도 함께 화주하였다. 두 진영은 필치는 물론 인물까지도 매우 닮아있다. 따라서 두 진영은 동일한 시기에 동일한 화사가 그렸음을 알 수 있다.\n\n호은문성은 당시 해인사에 머물고 있던 경허선사에게 이 두 진영의 영찬을 요청했다. 경허선사는 이를 의식한 듯, 두 진영의 영찬에 모두 제작자인 호은문성의 이름을 넣어서 글을 지었다. 선사는 이 때 금우화상의 영찬에는 신축(1901) 3월이라고 명기하여 날짜를 알 수 있게 하였다. 또한 “호은의 스승이요(虎隱之父) 화운관진의 제자(華雲之子)”라고 명시하여 “華雲觀眞-錦雨弼基-虎殷文性”으로 이어지게 됨을 기록하였다. 대연정첨의 영찬에는 “입적하신 후에 문도가 없어 호은상좌가 가르침의 은혜에 보답하기 위해 재물을 내어 진영을 해인사에 모셨으니 대연장로의 덕이 실로 높고 크기도 하거와 호은의 보은도 더욱 전에 없던 일이다  歸寂後, (無)門徒, 虎隱上座, 報其敎 投納亨需, 設影幀于, 伽倻海印之中, 長老之德 固是巍巍, 虎隱之報 尤爲希(有)”라고 상황을 묘사하여 이를 통해 호은문성이 대연정첨의 직제자가 아니면서도 호은문성이 한 때 가르침을 받았음을 시사하고 있다. 실물사진을 통해 1943년도 선학원본에서부터 현행하는데까지 無자가 있고, 有가 없음을 영찬의 원문을 통해서 교감할 수 있다. 사진은 경허록만공법어편찬위원회가 2022년 해인사 성보박물관에 방문하여 직접 촬영하였다."
+    },
+    {
+      id: "EP01-01-0072-Y1901_영찬_금우필기",
+      tag: "영찬 · 1901",
+      thumb: "images/EP01-01-0072-Y1901_영찬_금우필기_thumb.jpg",
+      full: "images/EP01-01-0072-Y1901_영찬_금우필기_full.jpg",
+      note: "호은문성(虎隱文性, 1850-1918)은 은사인 금우필기(錦雨弼基)의 진영을 화주하면서 대교(大敎)와 선전(禪典)을 배웠던 스승 대연정첨(大淵正添, 1873-1899?)의 진영도 함께 화주하였다. 두 진영은 필치는 물론 인물까지도 매우 닮아있다. 따라서 두 진영은 동일한 시기에 동일한 화사가 그렸음을 알 수 있다.\n\n호은문성은 당시 해인사에 머물고 있던 경허선사에게 이 두 진영의 영찬을 요청했다. 경허선사는 이를 의식한 듯, 두 진영의 영찬에 모두 제작자인 호은문성의 이름을 넣어서 글을 지었다. 선사는 이 때 금우화상의 영찬에는 신축(1901) 3월이라고 명기하여 날짜를 알 수 있게 하였다. 또한 “호은의 스승이요(虎隱之父) 화운관진의 제자(華雲之子)”라고 명시하여 “華雲觀眞-錦雨弼基-虎殷文性”으로 이어지게 됨을 기록하였다. 대연정첨의 영찬에는 “입적하신 후에 문도가 없어 호은상좌가 가르침의 은혜에 보답하기 위해 재물을 내어 진영을 해인사에 모셨으니 대연장로의 덕이 실로 높고 크기도 하거와 호은의 보은도 더욱 전에 없던 일이다  歸寂後, (無)門徒, 虎隱上座, 報其敎 投納亨需, 設影幀于, 伽倻海印之中, 長老之德 固是巍巍, 虎隱之報 尤爲希(有)”라고 상황을 묘사하여 이를 통해 호은문성이 대연정첨의 직제자가 아니면서도 호은문성이 한 때 가르침을 받았음을 시사하고 있다. 실물사진을 통해 1943년도 선학원본에서부터 현행하는데까지 無자가 있고, 有가 없음을 영찬의 원문을 통해서 교감할 수 있다. 사진은 경허록만공법어편찬위원회가 2022년 해인사 성보박물관에 방문하여 직접 촬영하였다."
+    },
+    {
+      id: "EP01-01-0073_Y1937_서간_한글서간문1",
+      tag: "서간 · 1937",
+      thumb: "images/EP01-01-0073_Y1937_서간_한글서간문1_thumb.jpg",
+      full: "images/EP01-01-0073_Y1937_서간_한글서간문1_full.jpg"
+    },
+    {
+      id: "EP01-01-0074-Y1936_서간_한글서간문4",
+      tag: "서간 · 1936",
+      thumb: "images/EP01-01-0074-Y1936_서간_한글서간문4_thumb.jpg",
+      full: "images/EP01-01-0074-Y1936_서간_한글서간문4_full.jpg"
+    },
+    {
+      id: "EP01-01-0075-X0000_서간_서간문 봉피",
+      tag: "서간 · 연도미상",
+      thumb: "images/EP01-01-0075-X0000_서간_서간문_봉피_thumb.jpg",
+      full: "images/EP01-01-0075-X0000_서간_서간문_봉피_full.jpg"
+    },
+    {
+      id: "EP01-01-0076-Y1934_서간_한글서간문3",
+      tag: "서간 · 1934",
+      thumb: "images/EP01-01-0076-Y1934_서간_한글서간문3_thumb.jpg",
+      full: "images/EP01-01-0076-Y1934_서간_한글서간문3_full.jpg"
+    },
+    {
+      id: "EP01-01-0077-X0000_서간_일엽씨젼",
+      tag: "서간 · 연도미상",
+      thumb: "images/EP01-01-0077-X0000_서간_일엽씨젼_thumb.jpg",
+      full: "images/EP01-01-0077-X0000_서간_일엽씨젼_full.jpg"
+    },
+    {
+      id: "EP01-01-0078-X0000_서간",
+      tag: "서간 · 연도미상",
+      thumb: "images/EP01-01-0078-X0000_서간_thumb.jpg",
+      full: "images/EP01-01-0078-X0000_서간_full.jpg"
+    },
+    {
+      id: "EP01-01-0079-Y1934_서간_포산혜천숙부",
+      tag: "서간 · 1934",
+      thumb: "images/EP01-01-0079-Y1934_서간_포산혜천숙부_thumb.jpg",
+      full: "images/EP01-01-0079-Y1934_서간_포산혜천숙부_full.jpg",
+      note: "포산혜천(1912-1971)의 외숙부의 회갑에 만공선사가 써 준 편지이다. 또한 어록에 실려있는 포산혜천에게 전한 전법게 제목에는 ‘滿飽夢樂(만공과 포산이 꿈꾸는 즐거움)’이라는 부제가 달려 있어 제자에 대한 만공선사의 정이 각별하게 느껴진다."
+    },
+    {
+      id: "EP01-01-0080-X0000_서간_액자",
+      tag: "서간 · 연도미상",
+      thumb: "images/EP01-01-0080-X0000_서간_액자_thumb.jpg",
+      full: "images/EP01-01-0080-X0000_서간_액자_full.jpg"
+    },
+    {
+      id: "EP01-01-0081-Y1900_시판_제범어사보제루",
+      tag: "시판 · 1900",
+      thumb: "images/EP01-01-0081-Y1900_시판_제범어사보제루_thumb.jpg",
+      full: "images/EP01-01-0081-Y1900_시판_제범어사보제루_full.jpg"
+    },
+    {
+      id: "EP01-01-0082-Y1944_시판_덕숭청규",
+      note: "덕숭청규의 내용은 신출자료집에 실려있으며 원본은 정혜사에 보존되어 있다.",
+      tag: "시판 · 1944",
+      thumb: "images/EP01-01-0082-Y1944_시판_덕숭청규_thumb.jpg",
+      full: "images/EP01-01-0082-Y1944_시판_덕숭청규_full.jpg"
+    },
+    {
+      id: "EP01-01-0083-Y1943_시판_망백운음",
+      tag: "시판 · 1943",
+      thumb: "images/EP01-01-0083-Y1943_시판_망백운음_thumb.jpg",
+      full: "images/EP01-01-0083-Y1943_시판_망백운음_full.jpg"
+    },
+    {
+      id: "EP01-01-0084-L1981_시판_통도사 환성선사 추모송",
+      note: "환성선사 추모송으로 시판에 새겨진 것으로 보이며 두 개의 글이 실려있다.\n\n題通度寺白蓮庵\n宕情收未了 호탕한 마음 거두지 못해\n長袖拂千岑 긴 소매로 천봉千峯을 휘젓고 다니노라\n深院聽鵑語 깊은 암자에서 두견새 소리 들으니\n江山萬古心 강산의 만고의 마음일레라\n\n通度寺白蓮庵謹次喚惺老師韻\n擲金遺什揭虛楹 금을 던지는 듯한 유편이 기둥에 걸렸나니\n道價千秋海岳輕 천추에 높은 도명道名에 바다와 산이 외려 가벼워라\n悠悠曠感無人識 유유한 세월 오래 흘러 아는 사람은 없고\n寒磬空留劫外聲 차가운 풍경 소리만 속절없이 겁외의 소리 남기네\n\n탈초와 번역은 경편위의 ⟪경허록⟫과 ⟪만공법어⟫, 그리고 불교학술원 통합대장경에 수록된 것이다. 시판에 새겨진 두 개의 시는 모두 경허집에 실려있으나 다른 작품으로 각각 실려있다. 또한 어록에는 표시되어 있지 않으나 시판에는 庚子(1900)년으로 기록되어 있어서 글이 작성된 시기를 알 수 있다. 또한 ‘湖(?)西歸門孫’ O牛로 표기하여 惺牛의 惺대신 O을 쓴 것이 특이하다. ⟪경허법어⟫에서는 환성선사추모송’으로 되어 있는 것을 이 시판 사진을  통해서 ‘통도사 백련암송’, ‘환성노사운’으로 사진의 제목을 수정하였다. 아울러 경허집은 ‘환성노사운’으로 되어 있으나 시판에는 환성선사(先師)로 표시하였다.",
+      tag: "시판 · 1981",
+      thumb: "images/EP01-01-0084-L1981_시판_통도사_환성선사_추모송_thumb.jpg",
+      full: "images/EP01-01-0084-L1981_시판_통도사_환성선사_추모송_full.jpg"
+    },
+    {
+      id: "EP01-01-0085-Y1901_시판_제송광사육감정",
+      tag: "시판 · 1901",
+      thumb: "images/EP01-01-0085-Y1901_시판_제송광사육감정_thumb.jpg",
+      full: "images/EP01-01-0085-Y1901_시판_제송광사육감정_full.jpg"
+    },
+    {
+      id: "EP01-01-0086-Y1940_묵서_만우당이고불심",
+      tag: "묵서 · 1940",
+      thumb: "images/EP01-01-0086-Y1940_묵서_만우당이고불심_thumb.jpg",
+      full: "images/EP01-01-0086-Y1940_묵서_만우당이고불심_full.jpg"
+    },
+    {
+      id: "EP01-01-0087-X0000_묵서_춘수",
+      tag: "묵서 · 연도미상",
+      thumb: "images/EP01-01-0087-X0000_묵서_춘수_thumb.jpg",
+      full: "images/EP01-01-0087-X0000_묵서_춘수_full.jpg"
+    },
+    {
+      id: "EP01-01-0088-Y1930_묵서_원상",
+      tag: "묵서 · 1930",
+      thumb: "images/EP01-01-0088-Y1930_묵서_원상_thumb.jpg",
+      full: "images/EP01-01-0088-Y1930_묵서_원상_full.jpg"
+    },
+    {
+      id: "EP01-01-0089-Y1930_묵서_원상2",
+      tag: "묵서 · 1930",
+      thumb: "images/EP01-01-0089-Y1930_묵서_원상2_thumb.jpg",
+      full: "images/EP01-01-0089-Y1930_묵서_원상2_full.jpg"
+    },
+    {
+      id: "EP01-01-0090-Y1945_묵서_세계일화",
+      tag: "묵서 · 1945",
+      thumb: "images/EP01-01-0090-Y1945_묵서_세계일화_thumb.jpg",
+      full: "images/EP01-01-0090-Y1945_묵서_세계일화_full.jpg"
+    },
+    {
+      id: "EP01-01-0091-Y1915_묵서_상량기_금선대",
+      tag: "묵서 · 1915",
+      thumb: "images/EP01-01-0091-Y1915_묵서_상량기_금선대_thumb.jpg",
+      full: "images/EP01-01-0091-Y1915_묵서_상량기_금선대_full.jpg",
+      note: "1915년에 만공선사가 쓴 금선대 상량문으로 알려져 있다."
+    },
+    {
+      id: "EP01-01-0092-Y1904_묵서_천중천_혜월선사",
+      tag: "묵서 · 1904",
+      thumb: "images/EP01-01-0092-Y1904_묵서_천중천_혜월선사_thumb.jpg",
+      full: "images/EP01-01-0092-Y1904_묵서_천중천_혜월선사_full.jpg"
+    },
+    {
+      id: "EP01-01-0093-X0000_묵서_횡액무이당",
+      note: "경허선사 친필 ‘무이당’으로 동일한 작품으로 근래에 표구할 때는 이미 주변이 많이 상했지만 1981년 이전에 촬영할 때는 손상이 없었던 것으로 비교해 볼 수 있다.",
+      tag: "묵서 · 연도미상",
+      thumb: "images/EP01-01-0093-X0000_묵서_횡액무이당_thumb.jpg",
+      full: "images/EP01-01-0093-X0000_묵서_횡액무이당_full.jpg"
+    },
+    {
+      id: "EP01-01-0094-X0000_묵서_혜암현문_삼성월반",
+      tag: "묵서 · 연도미상",
+      thumb: "images/EP01-01-0094-X0000_묵서_혜암현문_삼성월반_thumb.jpg",
+      full: "images/EP01-01-0094-X0000_묵서_혜암현문_삼성월반_full.jpg"
+    },
+    {
+      id: "EP01-01-0095-X0000_묵서_천하멱의인",
+      tag: "묵서 · 연도미상",
+      thumb: "images/EP01-01-0095-X0000_묵서_천하멱의인_thumb.jpg",
+      full: "images/EP01-01-0095-X0000_묵서_천하멱의인_full.jpg"
+    },
+    {
+      id: "EP01-01-0096-X0000_묵서_염궁문",
+      tag: "묵서 · 연도미상",
+      thumb: "images/EP01-01-0096-X0000_묵서_염궁문_thumb.jpg",
+      full: "images/EP01-01-0096-X0000_묵서_염궁문_full.jpg"
+    },
+    {
+      id: "EP01-01-0097-X0000_묵서_즉심시불",
+      tag: "묵서 · 연도미상",
+      thumb: "images/EP01-01-0097-X0000_묵서_즉심시불_thumb.jpg",
+      full: "images/EP01-01-0097-X0000_묵서_즉심시불_full.jpg"
+    },
+    {
+      id: "EP01-01-0098-X0000_묵서_벽초선사",
+      tag: "묵서 · 연도미상",
+      thumb: "images/EP01-01-0098-X0000_묵서_벽초선사_thumb.jpg",
+      full: "images/EP01-01-0098-X0000_묵서_벽초선사_full.jpg"
+    },
+    {
+      id: "EP01-01-0100-X0000_묵서_만법귀일",
+      tag: "묵서 · 연도미상",
+      thumb: "images/EP01-01-0100-X0000_묵서_만법귀일_thumb.jpg",
+      full: "images/EP01-01-0100-X0000_묵서_만법귀일_full.jpg"
+    },
+    {
+      id: "EP01-01-0101-X0000_묵서_만공필족자",
+      tag: "묵서 · 연도미상",
+      thumb: "images/EP01-01-0101-X0000_묵서_만공필족자_thumb.jpg",
+      full: "images/EP01-01-0101-X0000_묵서_만공필족자_full.jpg"
+    },
+    {
+      id: "EP01-01-0102-X0000_묵서_만공만",
+      tag: "묵서 · 연도미상",
+      thumb: "images/EP01-01-0102-X0000_묵서_만공만_thumb.jpg",
+      full: "images/EP01-01-0102-X0000_묵서_만공만_full.jpg"
+    },
+    {
+      id: "EP01-01-0103-X0000_묵서_대련_만해용운",
+      tag: "묵서 · 연도미상",
+      thumb: "images/EP01-01-0103-X0000_묵서_대련_만해용운_thumb.jpg",
+      full: "images/EP01-01-0103-X0000_묵서_대련_만해용운_full.jpg"
+    },
+    {
+      id: "EP01-01-0104-Y1938_묵서_백초시불모",
+      tag: "묵서 · 1938",
+      thumb: "images/EP01-01-0104-Y1938_묵서_백초시불모_thumb.jpg",
+      full: "images/EP01-01-0104-Y1938_묵서_백초시불모_full.jpg"
+    },
+    {
+      id: "EP01-01-0105-Y1937_편액_불유각",
+      tag: "편액 · 1937",
+      thumb: "images/EP01-01-0105-Y1937_편액_불유각_thumb.jpg",
+      full: "images/EP01-01-0105-Y1937_편액_불유각_full.jpg"
+    },
+    {
+      id: "EP01-01-0106-Y1939_편액_견성암누각_칠근루",
+      tag: "편액 · 1939",
+      thumb: "images/EP01-01-0106-Y1939_편액_견성암누각_칠근루_thumb.jpg",
+      full: "images/EP01-01-0106-Y1939_편액_견성암누각_칠근루_full.jpg"
+    },
+    {
+      id: "EP01-01-0107-Y1934_편액_백련당",
+      tag: "편액 · 1934",
+      thumb: "images/EP01-01-0107-Y1934_편액_백련당_thumb.jpg",
+      full: "images/EP01-01-0107-Y1934_편액_백련당_full.jpg"
+    },
+    {
+      id: "EP01-01-0108-D1920_편액_팔부각",
+      tag: "편액 · 1920",
+      thumb: "images/EP01-01-0108-D1920_편액_팔부각_thumb.jpg",
+      full: "images/EP01-01-0108-D1920_편액_팔부각_full.jpg"
+    },
+    {
+      id: "EP01-01-0109-Y1939_편액_견성암",
+      tag: "편액 · 1939",
+      thumb: "images/EP01-01-0109-Y1939_편액_견성암_thumb.jpg",
+      full: "images/EP01-01-0109-Y1939_편액_견성암_full.jpg"
+    },
+    {
+      id: "EP01-02-0001-L1982_간월암",
+      tag: "기록사진 · 1982",
+      thumb: "images/EP01-02-0001-L1982_간월암_thumb.jpg",
+      full: "images/EP01-02-0001-L1982_간월암_full.jpg"
+    },
+    {
+      id: "EP01-02-0002-L1982_만공탑",
+      tag: "기록사진 · 1982",
+      thumb: "images/EP01-02-0002-L1982_만공탑_thumb.jpg",
+      full: "images/EP01-02-0002-L1982_만공탑_full.jpg"
+    },
+    {
+      id: "EP01-02-0003-L1982_소림초당",
+      tag: "기록사진 · 1982",
+      thumb: "images/EP01-02-0003-L1982_소림초당_thumb.jpg",
+      full: "images/EP01-02-0003-L1982_소림초당_full.jpg"
+    },
+    {
+      id: "EP01-02-0004-L1982_수덕사",
+      tag: "기록사진 · 1982",
+      thumb: "images/EP01-02-0004-L1982_수덕사_thumb.jpg",
+      full: "images/EP01-02-0004-L1982_수덕사_full.jpg"
+    },
+    {
+      id: "EP01-02-0005-L1982_아산_봉곡사",
+      tag: "기록사진 · 1982",
+      thumb: "images/EP01-02-0005-L1982_아산_봉곡사_thumb.jpg",
+      full: "images/EP01-02-0005-L1982_아산_봉곡사_full.jpg"
+    },
+    {
+      id: "EP01-02-0006-L1968_전월사",
+      tag: "기록사진 · 1968",
+      thumb: "images/EP01-02-0006-L1968_전월사_thumb.jpg",
+      full: "images/EP01-02-0006-L1968_전월사_full.jpg"
+    },
+    {
+      id: "EP01-02-0006-L1981_석조관음보살",
+      tag: "기록사진 · 1981",
+      thumb: "images/EP01-02-0006-L1981_석조관음보살_thumb.jpg",
+      full: "images/EP01-02-0006-L1981_석조관음보살_full.jpg"
+    },
+    {
+      id: "EP01-02-0007-L1968_정혜사_전경",
+      tag: "기록사진 · 1968",
+      thumb: "images/EP01-02-0007-L1968_정혜사_전경_thumb.jpg",
+      full: "images/EP01-02-0007-L1968_정혜사_전경_full.jpg"
+    },
+    {
+      id: "EP01-02-0008-L1982_도비산_부석사",
+      tag: "기록사진 · 1982",
+      thumb: "images/EP01-02-0008-L1982_도비산_부석사_thumb.jpg",
+      full: "images/EP01-02-0008-L1982_도비산_부석사_full.jpg"
+    },
+    {
+      id: "EP01-02-0009-L1981_해인사_퇴설당",
+      tag: "기록사진 · 1981",
+      thumb: "images/EP01-02-0009-L1981_해인사_퇴설당_thumb.jpg",
+      full: "images/EP01-02-0009-L1981_해인사_퇴설당_full.jpg"
+    },
+    {
+      id: "EP01-02-0011-Y2023_만공선사공덕비",
+      note: "송만공대선사구휼송덕비(宋滿空大禪師救恤頌德碑)는 1931년 5월 6일자와  27일자 매일신보에는 만공선사가 이재민들에게 베푼 구휼미 보시에 대한 내용이 있으며 여기에 보은하기 위하여 예산군 덕산면 8개리의 주민들이 돈을 모아 만공스님의 송덕비를 건립중이라는 기사가 실려있다. 한 편 1990년 경 마을의 제보를 받고 수덕사의 정묵스님과 주경스님 등 소임자 스님들이 윤봉길 의사 사당근처에서 파손된 비석을 발굴하였다. 비석은 현재 수덕사 율원(만공기념관)앞에 복원해 두었으나 그 동안 비석의 내용과 건립경위는 밝혀지지 않았다. 2023년 경편위에서 위의 31년자 신문기사를 통해서 해당비석임을 밝혀냈다. 불교학술원 문화유산연구소 김민규 박사가 글자를 판독할 수 있도록 촬영한 사진이며 내용에 대해서는 불교학술원의 선암스님과 박인석 교수가 탈초하여 일부 내용을 다음과 같이 밝혀냈다.\n\n☐☐大師 ☐☐功深\n淸淨世尊 慈悲觀音\n☐☐☐灾 罕古稀今\n☐☐恤☐ ☐☐善心\n隆崖化日 旱天甘露\n普濟其◻︎ 孰不仰欽",
+      tag: "기록사진 · 2023",
+      thumb: "images/EP01-02-0011-Y2023_만공선사공덕비_thumb.jpg",
+      full: "images/EP01-02-0011-Y2023_만공선사공덕비_full.jpg"
+    },
+    {
+      id: "EP01-02-0012-Y2023_만공선사공덕비",
+      note: "송만공대선사구휼송덕비(宋滿空大禪師救恤頌德碑)는 1931년 5월 6일자와  27일자 매일신보에는 만공선사가 이재민들에게 베푼 구휼미 보시에 대한 내용이 있으며 여기에 보은하기 위하여 예산군 덕산면 8개리의 주민들이 돈을 모아 만공스님의 송덕비를 건립중이라는 기사가 실려있다. 한 편 1990년 경 마을의 제보를 받고 수덕사의 정묵스님과 주경스님 등 소임자 스님들이 윤봉길 의사 사당근처에서 파손된 비석을 발굴하였다. 비석은 현재 수덕사 율원(만공기념관)앞에 복원해 두었으나 그 동안 비석의 내용과 건립경위는 밝혀지지 않았다. 2023년 경편위에서 위의 31년자 신문기사를 통해서 해당비석임을 밝혀냈다. 불교학술원 문화유산연구소 김민규 박사가 글자를 판독할 수 있도록 촬영한 사진이며 내용에 대해서는 불교학술원의 선암스님과 박인석 교수가 탈초하여 일부 내용을 다음과 같이 밝혀냈다.\n\n☐☐大師 ☐☐功深\n淸淨世尊 慈悲觀音\n☐☐☐灾 罕古稀今\n☐☐恤☐ ☐☐善心\n隆崖化日 旱天甘露\n普濟其◻︎ 孰不仰欽",
+      tag: "기록사진 · 2023",
+      thumb: "images/EP01-02-0012-Y2023_만공선사공덕비_thumb.jpg",
+      full: "images/EP01-02-0012-Y2023_만공선사공덕비_full.jpg"
+    },
+    {
+      id: "EP01-03-0013-Y1941_선학원_고승대회_유교법회",
+      tag: "인물 · 1941",
+      thumb: "images/EP01-03-0013-Y1941_선학원_고승대회_유교법회_thumb.jpg",
+      full: "images/EP01-03-0013-Y1941_선학원_고승대회_유교법회_full.jpg"
+    },
+    {
+      id: "EP01-03-0063-Y1936_경허당대선사성우진영",
+      note: "1936년 설산(雪山) 최광익(崔光益, 1891-1970)에게 만공선사가 요청해서 그린 경허선사와 만공선사의 진영으로, 사진이 남아있지 않은 경허선사의 모습을 알 수 있는 현재까지 밝혀진 것 중에는 가장 오래된 진영이다. 이후 20세기에 조성된 64번 범어사본을 비롯하여 해운정사와 2010년 제작된 묘관음사 조사전 등 여러 판본들이 있으며 대부분 이 1936년본을 참고하여 조성한 것으로 알려져있다.",
+      tag: "인물 · 1936",
+      thumb: "images/EP01-03-0063-Y1936_경허당대선사성우진영_thumb.jpg",
+      full: "images/EP01-03-0063-Y1936_경허당대선사성우진영_full.jpg"
+    },
+    {
+      id: "EP01-03-0064-X0000_경허당대선사_성우_진영_鏡虛堂大禪師惺牛眞影",
+      tag: "인물 · 연도미상",
+      thumb: "images/EP01-03-0064-X0000_경허당대선사_성우_진영_鏡虛堂大禪師惺牛眞影_thumb.jpg",
+      full: "images/EP01-03-0064-X0000_경허당대선사_성우_진영_鏡虛堂大禪師惺牛眞影_full.jpg"
+    },
+    {
+      id: "EP01-03-0065-X0000_혜월진영_거양종래척사현정혜월당대선사진영_擧揚宗來斥邪顯正慧月堂大禪師眞影",
+      tag: "인물 · 연도미상",
+      thumb: "images/EP01-03-0065-X0000_혜월진영_거양종래척사현정혜월당대선사진영_擧揚宗來斥邪顯正慧月堂大禪師眞影_thumb.jpg",
+      full: "images/EP01-03-0065-X0000_혜월진영_거양종래척사현정혜월당대선사진영_擧揚宗來斥邪顯正慧月堂大禪師眞影_full.jpg"
+    },
+    {
+      id: "EP01-03-0080-Y1938_금선대_만공대_만공선사_68세",
+      note: "금선대 경내에 만공선사가 즐겨 앉으시던 곳이라 ‘만공대’라고 불리는 곳이다. 68세 때라고 전하는 비교적 젊은 나이의 사진이다.",
+      tag: "인물 · 1938",
+      thumb: "images/EP01-03-0080-Y1938_금선대_만공대_만공선사_68세_thumb.jpg",
+      full: "images/EP01-03-0080-Y1938_금선대_만공대_만공선사_68세_full.jpg"
+    },
+    {
+      id: "EP01-03-0082-Y1941_유교법회-선학원_고승대회",
+      note: "‘1941년 3월 13일 유교법회 선학원 고승대회’로 전하는 사진으로 많은 고승들이 함께 찍은 사진이다. 한 가운데 만공선사가 앉아있으며 바로 옆 왼쪽에는 석전영호(石顚映湖, 1870~1948)선사가 있다. 석전영호 왼쪽에는 석상신수(石霜信首, 1872~1947), 뒤로는 동산혜일(東山慧日, 1890~1965), 좌측에서 위로 5번째 금오태전(金烏太田, 1896~1968) 등을 볼 수 있는 귀한 사진이다.",
+      tag: "인물 · 1941",
+      thumb: "images/EP01-03-0082-Y1941_유교법회-선학원_고승대회_thumb.jpg",
+      full: "images/EP01-03-0082-Y1941_유교법회-선학원_고승대회_full.jpg"
+    },
+    {
+      id: "EP01-03-0083-L1982_전월사_정원_만공스님",
+      note: "1946년 이전 촬영된 사진으로 전월사에서 만공선사가 마지막으로 찍은 사진으로 알려져 있다. 현재 사진 중에 만공선사의 가장 나이든 모습이다. 우측 맨 아래가 원담진성(圓潭眞性, 1926~2008) 선사가 있고 비구니 스님들은 수업, 성오, 수련 등이다.",
+      tag: "인물 · 1982",
+      thumb: "images/EP01-03-0083-L1982_전월사_정원_만공스님_thumb.jpg",
+      full: "images/EP01-03-0083-L1982_전월사_정원_만공스님_full.jpg"
+    },
+    {
+      id: "EP01-03-0085-Y1934_마하연_제4회_하안거_기념",
+      tag: "인물 · 1934",
+      thumb: "images/EP01-03-0085-Y1934_마하연_제4회_하안거_기념_thumb.jpg",
+      full: "images/EP01-03-0085-Y1934_마하연_제4회_하안거_기념_full.jpg"
+    },
+    {
+      id: "EP01-03-0085-Y1981_만공선사전신",
+      tag: "인물 · 1981",
+      thumb: "images/EP01-03-0085-Y1981_만공선사전신_thumb.jpg",
+      full: "images/EP01-03-0085-Y1981_만공선사전신_full.jpg"
+    },
+    {
+      id: "EP01-03-0086-X0000_견성암",
+      tag: "인물 · 연도미상",
+      thumb: "images/EP01-03-0086-X0000_견성암_thumb.jpg",
+      full: "images/EP01-03-0086-X0000_견성암_full.jpg"
+    },
+    {
+      id: "EP01-03-0087-X0000_능인선원_쌍수루_앞",
+      tag: "인물 · 연도미상",
+      thumb: "images/EP01-03-0087-X0000_능인선원_쌍수루_앞_thumb.jpg",
+      full: "images/EP01-03-0087-X0000_능인선원_쌍수루_앞_full.jpg"
+    },
+    {
+      id: "EP01-03-0088-X0000_만공선사",
+      tag: "인물 · 연도미상",
+      thumb: "images/EP01-03-0088-X0000_만공선사_thumb.jpg",
+      full: "images/EP01-03-0088-X0000_만공선사_full.jpg"
+    },
+    {
+      id: "EP01-03-0089-Y1936_만공당월면대선사진영___滿空堂月面大禪師眞影",
+      note: "1936년 설산(雪山) 최광익(崔光益, 1891-1970)에게 만공선사가 요청해서 그린 경허선사와 만공선사의 진영으로, 사진이 남아있지 않은 경허선사의 모습을 알 수 있는 현재까지 밝혀진 것 중에는 가장 오래된 진영이다. 이후 20세기에 조성된 64번 범어사본을 비롯하여 해운정사와 2010년 제작된 묘관음사 조사전 등 여러 판본들이 있으며 대부분 이 1936년본을 참고하여 조성한 것으로 알려져있다.",
+      tag: "인물 · 1936",
+      thumb: "images/EP01-03-0089-Y1936_만공당월면대선사진영___滿空堂月面大禪師眞影_thumb.jpg",
+      full: "images/EP01-03-0089-Y1936_만공당월면대선사진영___滿空堂月面大禪師眞影_full.jpg"
+    },
+    {
+      id: "EP01-03-0090-Y1936_만공선사_다비",
+      note: "만공선사 다비식 장면을 촬영한 것으로 90번은 선사의 관을 드는 장면과 화장장면의 사진 2장이 겹쳐진채로 다시 촬영된 것으로 보인다. 91은 빈소의 장면울 촬영한 귀한 사진으로 좌측에 걸린 만장에서 당시의 존호가 “전불심등 부종수교 일국명현 만공당 대종사 지☐(傳佛心燈 扶宗樹敎 一國名現 滿空堂 大宗師 之 ☐)” 라고 되어있음 알 수 있다.",
+      tag: "인물 · 1936",
+      thumb: "images/EP01-03-0090-Y1936_만공선사_다비_thumb.jpg",
+      full: "images/EP01-03-0090-Y1936_만공선사_다비_full.jpg"
+    },
+    {
+      id: "EP01-03-0091-Y1936_만공선사_다비",
+      note: "만공선사 다비식 장면을 촬영한 것으로 90번은 선사의 관을 드는 장면과 화장장면의 사진 2장이 겹쳐진채로 다시 촬영된 것으로 보인다. 91은 빈소의 장면울 촬영한 귀한 사진으로 좌측에 걸린 만장에서 당시의 존호가 “전불심등 부종수교 일국명현 만공당 대종사 지☐(傳佛心燈 扶宗樹敎 一國名現 滿空堂 大宗師 之 ☐)” 라고 되어있음 알 수 있다.",
+      tag: "인물 · 1936",
+      thumb: "images/EP01-03-0091-Y1936_만공선사_다비_thumb.jpg",
+      full: "images/EP01-03-0091-Y1936_만공선사_다비_full.jpg"
+    },
+    {
+      id: "EP01-03-0093-Y1936_만공선사_다비",
+      note: "만공선사 다비식 장면을 촬영한 것으로 90번은 선사의 관을 드는 장면과 화장장면의 사진 2장이 겹쳐진채로 다시 촬영된 것으로 보인다. 91은 빈소의 장면울 촬영한 귀한 사진으로 좌측에 걸린 만장에서 당시의 존호가 “전불심등 부종수교 일국명현 만공당 대종사 지☐(傳佛心燈 扶宗樹敎 一國名現 滿空堂 大宗師 之 ☐)” 라고 되어있음 알 수 있다.",
+      tag: "인물 · 1936",
+      thumb: "images/EP01-03-0093-Y1936_만공선사_다비_thumb.jpg",
+      full: "images/EP01-03-0093-Y1936_만공선사_다비_full.jpg"
+    },
+    {
+      id: "EP01-03-0095-Y1943_송만공대화상_환영기념",
+      shot: "1943. 7. 6.",
+      note: "전자불전연구소에서 사업 때 이미 수집했던 사진으로 이 시리즈에 포함시켰다. 만공선사가 1943년 7.6일에 찍은 사진이다. ‘송만공대화상환영기념’이라고 기록되어 있다.",
+      tag: "인물 · 1943",
+      thumb: "images/EP01-03-0095-Y1943_송만공대화상_환영기념_thumb.jpg",
+      full: "images/EP01-03-0095-Y1943_송만공대화상_환영기념_full.jpg"
+    },
+    {
+      id: "EP01-03-0096-X0000_만공선사",
+      tag: "인물 · 연도미상",
+      thumb: "images/EP01-03-0096-X0000_만공선사_thumb.jpg",
+      full: "images/EP01-03-0096-X0000_만공선사_full.jpg"
+    },
+    {
+      id: "EP01-04-0001-L2012_경허 인장인보",
+      tag: "기타 · 2012",
+      thumb: "images/EP01-04-0001-L2012_경허_인장인보_thumb.jpg",
+      full: "images/EP01-04-0001-L2012_경허_인장인보_full.jpg"
+    },
+    {
+      id: "EP01-04-0002-L2012_만공 인장인보1",
+      tag: "기타 · 2012",
+      thumb: "images/EP01-04-0002-L2012_만공_인장인보1_thumb.jpg",
+      full: "images/EP01-04-0002-L2012_만공_인장인보1_full.jpg"
+    },
+    {
+      id: "EP01-04-0003-L2012_만공 인장인보2",
+      tag: "기타 · 2012",
+      thumb: "images/EP01-04-0003-L2012_만공_인장인보2_thumb.jpg",
+      full: "images/EP01-04-0003-L2012_만공_인장인보2_full.jpg"
+    },
+    {
+      id: "EP01-04-0004-Y1937_거문고1",
+      tag: "기타 · 1937",
+      thumb: "images/EP01-04-0004-Y1937_거문고1_thumb.jpg",
+      full: "images/EP01-04-0004-Y1937_거문고1_full.jpg"
+    },
+    {
+      id: "EP01-04-0005-Y1937_거문고2",
+      tag: "기타 · 1937",
+      thumb: "images/EP01-04-0005-Y1937_거문고2_thumb.jpg",
+      full: "images/EP01-04-0005-Y1937_거문고2_full.jpg"
+    },
+    {
+      id: "EP01-04-0006-Y1937_거문고3",
+      tag: "기타 · 1937",
+      thumb: "images/EP01-04-0006-Y1937_거문고3_thumb.jpg",
+      full: "images/EP01-04-0006-Y1937_거문고3_full.jpg"
+    },
+    {
+      id: "EP01-04-0007-Y1937_거문고4",
+      tag: "기타 · 1937",
+      thumb: "images/EP01-04-0007-Y1937_거문고4_thumb.jpg",
+      full: "images/EP01-04-0007-Y1937_거문고4_full.jpg"
+    },
+    {
+      id: "EP01-04-0008-L1968_만공가사",
+      tag: "기타 · 1968",
+      thumb: "images/EP01-04-0008-L1968_만공가사_thumb.jpg",
+      full: "images/EP01-04-0008-L1968_만공가사_full.jpg"
+    },
+    {
+      id: "EP01-04-0009-L2012_17조 홍가사",
+      tag: "기타 · 2012",
+      thumb: "images/EP01-04-0009-L2012_17조_홍가사_thumb.jpg",
+      full: "images/EP01-04-0009-L2012_17조_홍가사_full.jpg"
+    },
+    {
+      id: "EP01-04-0010-L2012_25조 금란가사",
+      tag: "기타 · 2012",
+      thumb: "images/EP01-04-0010-L2012_25조_금란가사_thumb.jpg",
+      full: "images/EP01-04-0010-L2012_25조_금란가사_full.jpg"
+    },
+    {
+      id: "EP01-04-0011-L2012_누비동방",
+      tag: "기타 · 2012",
+      thumb: "images/EP01-04-0011-L2012_누비동방_thumb.jpg",
+      full: "images/EP01-04-0011-L2012_누비동방_full.jpg"
+    },
+    {
+      id: "EP01-04-0012-L1968_만공 불자",
+      tag: "기타 · 1968",
+      thumb: "images/EP01-04-0012-L1968_만공_불자_thumb.jpg",
+      full: "images/EP01-04-0012-L1968_만공_불자_full.jpg"
+    },
+    {
+      id: "EP01-04-0013-L1968_만공 주장자",
+      tag: "기타 · 1968",
+      thumb: "images/EP01-04-0013-L1968_만공_주장자_thumb.jpg",
+      full: "images/EP01-04-0013-L1968_만공_주장자_full.jpg"
+    },
+    {
+      id: "EP01-04-0014-Y1937_최승희포스터",
+      tag: "기타 · 1937",
+      thumb: "images/EP01-04-0014-Y1937_최승희포스터_thumb.jpg",
+      full: "images/EP01-04-0014-Y1937_최승희포스터_full.jpg"
+    }
+  ];
+
+  // 시리즈(분류) 라벨: 새 분류가 생기면 여기에 한 줄만 추가하면 됩니다
+  const SERIES_LABELS = {
+    "EP01-01": "문서",
+    "EP01-02": "사찰",
+    "EP01-03": "인물",
+    "EP01-04": "기타",
+  };
+
+  const sectionsEl = document.getElementById('sections');
+  const tabbarEl = document.getElementById('tabbar');
+  const searchbarEl = document.getElementById('searchbar');
+  const searchInput = document.getElementById('searchInput');
+  const searchClear = document.getElementById('searchClear');
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbTitle = document.getElementById('lbTitle');
+  const lbStage = document.getElementById('lbStage');
+  const lbLoading = document.getElementById('lbLoading');
+  const closeBtn = document.getElementById('closeBtn');
+  const zoomInBtn = document.getElementById('zoomInBtn');
+  const zoomOutBtn = document.getElementById('zoomOutBtn');
+
+  let lastFocused = null;
+  let activeTab = "ALL";
+  let searchQuery = "";
+
+  function seriesKeyOf(id){
+    const m = id.match(/^EP\d+-\d+/);
+    return m ? m[0] : "기타";
+  }
+
+  // 파일명을 "번호" 부분과 "이름" 부분으로 분리
+  // 예: EP01-01-0002-Y1902_전법게_혜월혜명 -> { num: "EP01-01-0002-Y1902", name: "전법게 혜월혜명" }
+  function splitFileId(id){
+    const m = id.match(/^(EP\d+(?:-\d+)+(?:[-_][XYL]\d{4})?)[-_](.+)$/);
+    if(!m) return { num: id, name: "" };
+    return { num: m[1], name: m[2].replace(/_/g, ' ') };
+  }
+
+  // 고유번호 끝의 연도(-Y1904 등)만 따로 강조
+  function numHTML(num){
+    const m = num.match(/^(.*?[-_][XYL])(\d{4})$/);
+    if(!m) return num;
+    return `${m[1]}<span class="yr">${m[2]}</span>`;
+  }
+
+  // 지정한 자료는 여백(레터박스)을 잘라내고 3:4 썸네일을 가득 채움: crop = [왼쪽, 위, 폭(원본 대비 비율), 원본폭, 원본높이]
+  function cropStyle(item){
+    if(!item.crop) return '';
+    const [x, y, w, sw, sh] = item.crop;
+    const f = v => +v.toFixed(3);
+    return ` style="position:absolute;max-width:none;object-fit:fill;height:auto;width:${f(100/w)}%;left:${f(-x/w*100)}%;top:${f(-y/w*(sh/sw)*75)}%"`;
+  }
+  function makeCard(item, idx){
+    const card = document.createElement('button');
+    card.className = 'art-card';
+    card.type = 'button';
+    card.setAttribute('aria-haspopup', 'dialog');
+    const parts = splitFileId(item.id);
+    card.innerHTML = `
+      <span class="thumb-holder">
+        <img src="${item.thumb}" alt="${item.id} 썸네일" loading="lazy">
+        <span class="scrim"></span>
+        <span class="zoom-hint">&#128269; 크게 보기</span>
+        <span class="overlay-meta">
+          <h2 class="file-id">${numHTML(parts.num)}</h2>
+          <span class="file-name">${parts.name}</span>
+        </span>
+      </span>
+    `;
+    card.addEventListener('click', () => openLightbox(idx));
+    return card;
+  }
+
+  // ---- 보기 방식 (썸네일형 / 목록형) ----
+  let viewMode = "grid";
+  try{ if(localStorage.getItem('viewMode') === 'list') viewMode = 'list'; }catch(e){}
+
+  function makeRow(item, idx){
+    const row = document.createElement('button');
+    row.className = 'list-row';
+    row.type = 'button';
+    row.setAttribute('aria-haspopup', 'dialog');
+    const parts = splitFileId(item.id);
+    const cat = (item.tag || '').split(' · ')[0];
+    row.innerHTML = `
+      <img class="lthumb" src="${item.thumb}" alt="${item.id} 썸네일" loading="lazy">
+      <span class="lnum">${numHTML(parts.num)}</span>
+      <span class="lcat">${cat}</span>
+      <span class="lname">${parts.name}</span>
+    `;
+    row.addEventListener('click', () => openLightbox(idx));
+    return row;
+  }
+  function makeItem(item, idx){ return viewMode === 'list' ? makeRow(item, idx) : makeCard(item, idx); }
+  function containerClass(){ return viewMode === 'list' ? 'list' : 'grid'; }
+
+  function buildGroups(){
+    const groups = new Map();
+    ARTIFACTS.forEach((item, idx) => {
+      const key = seriesKeyOf(item.id);
+      if(!groups.has(key)) groups.set(key, []);
+      groups.get(key).push({ item, idx });
+    });
+    return groups;
+  }
+
+  function renderTabs(groups){
+    tabbarEl.innerHTML = "";
+
+    const allBtn = document.createElement('button');
+    allBtn.type = 'button';
+    allBtn.innerHTML = `전체 <sub>${ARTIFACTS.length}</sub>`;
+    allBtn.className = activeTab === "ALL" ? "active" : "";
+    allBtn.addEventListener('click', () => { activeTab = "ALL"; clearSearch(); renderGrid(); });
+    tabbarEl.appendChild(allBtn);
+
+    groups.forEach((entries, key) => {
+      const label = SERIES_LABELS[key] || "미분류";
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.innerHTML = `${label} <sub>${entries.length}</sub>`;
+      btn.className = activeTab === key ? "active" : "";
+      btn.addEventListener('click', () => { activeTab = key; clearSearch(); renderGrid(); });
+      tabbarEl.appendChild(btn);
+    });
+  }
+
+  function clearSearch(){
+    searchQuery = "";
+    searchInput.value = "";
+    searchbarEl.classList.remove('has-text');
+  }
+
+  function renderGrid(){
+    sectionsEl.innerHTML = "";
+    const groups = buildGroups();
+    renderTabs(groups);
+
+    const q = searchQuery.trim().toLowerCase();
+    if(q){
+      const matches = ARTIFACTS
+        .map((item, idx) => ({ item, idx }))
+        .filter(({ item }) => item.id.toLowerCase().includes(q) || item.tag.toLowerCase().includes(q));
+
+      const section = document.createElement('section');
+      section.className = 'series-section';
+      section.innerHTML = `
+        <div class="search-result-head">"${searchQuery.trim()}" 검색결과 ${matches.length}건</div>
+        <div class="${containerClass()}"></div>
+      `;
+      const gridEl = section.querySelector('.grid, .list');
+      matches.forEach(({ item, idx }) => gridEl.appendChild(makeItem(item, idx)));
+      sectionsEl.appendChild(section);
+      return;
+    }
+
+    // 분류 제목 없이 모든 사진을 하나로 이어서 표시 (필터는 위 탭으로)
+    const section = document.createElement('section');
+    section.className = 'series-section';
+    section.innerHTML = `<div class="${containerClass()}"></div>`;
+    const gridEl = section.querySelector('.grid, .list');
+    groups.forEach((entries, key) => {
+      if(activeTab !== "ALL" && activeTab !== key) return;
+      entries.forEach(({ item, idx }) => gridEl.appendChild(makeItem(item, idx)));
+    });
+    sectionsEl.appendChild(section);
+  }
+
+
+  // ---- Pan/Zoom state ----
+  let scale = 1, minScale = 1, maxScale = 5;
+  let panX = 0, panY = 0;
+  let dragging = false, dragStartX = 0, dragStartY = 0, panStartX = 0, panStartY = 0;
+
+  function applyTransform(){
+    lbImg.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+    lbStage.classList.toggle('zoomed', scale > minScale + 0.001);
+  }
+
+  function clampPan(){
+    // Loosely clamp so image can't be dragged entirely off-screen
+    const stageRect = lbStage.getBoundingClientRect();
+    const maxOffsetX = (stageRect.width * (scale - 1)) / 2 + stageRect.width * 0.15;
+    const maxOffsetY = (stageRect.height * (scale - 1)) / 2 + stageRect.height * 0.15;
+    panX = Math.max(-maxOffsetX, Math.min(maxOffsetX, panX));
+    panY = Math.max(-maxOffsetY, Math.min(maxOffsetY, panY));
+  }
+
+  function setScale(next, focal){
+    const prev = scale;
+    // 처음 확대(맞춤 상태에서)는 화면 중앙 기준, 이미 확대된 뒤에는 커서 위치 기준
+    if(prev <= minScale + 0.001) focal = null;
+    scale = Math.max(minScale, Math.min(maxScale, next));
+    if(focal){
+      const ratio = scale / prev;
+      panX = focal.x - (focal.x - panX) * ratio;
+      panY = focal.y - (focal.y - panY) * ratio;
+    }
+    if(scale <= minScale + 0.001){ panX = 0; panY = 0; }
+    clampPan();
+    applyTransform();
+  }
+
+  function resetView(){
+    scale = 1; panX = 0; panY = 0;
+    applyTransform();
+  }
+
+  const infoBtn = document.getElementById('infoBtn');
+  let infoPinned = false;
+  function setInfo(on){
+    if(!on) infoPinned = false;
+    lbTitle.classList.toggle('open', on);
+    infoBtn.setAttribute('aria-expanded', on ? 'true' : 'false');
+    infoBtn.style.opacity = on ? '1' : '';
+  }
+  // 마우스: i 위에 올리면 열리고 벗어나면 닫힘 / 터치·키보드: 눌러서 열고 닫기
+  let infoMouse = false;
+  infoBtn.addEventListener('pointerenter', (e) => { if(e.pointerType === 'mouse'){ infoMouse = true; setInfo(true); } });
+  infoBtn.addEventListener('pointerleave', (e) => { if(e.pointerType === 'mouse'){ infoMouse = false; if(!infoPinned) setInfo(false); } });
+  // 클릭하면 열린 채로 고정(긴 해제를 스크롤해서 읽을 수 있음), 다시 클릭하면 닫힘
+  infoBtn.addEventListener('click', () => { if(infoPinned){ setInfo(false); } else { setInfo(true); infoPinned = true; } });
+
+  function openLightbox(idx){
+    const item = ARTIFACTS[idx];
+    lastFocused = document.activeElement;
+    const parts = splitFileId(item.id);
+    lbTitle.innerHTML = `<span class="lb-label">고유번호</span><span class="lb-id">${parts.num}</span><span class="lb-label">자료명</span><span class="lb-name">${parts.name}</span><span class="lb-label">분류 · 연도</span><span class="sub">${item.tag}</span>`
+      // 촬영자·촬영일은 알려진 자료만 표시 (자료 항목에 photographer / shot 을 적으면 나타남)
+      + (item.photographer ? `<span class="lb-label">촬영자</span><span class="sub">${item.photographer}</span>` : '')
+      + (item.shot ? `<span class="lb-label">촬영일</span><span class="sub">${item.shot}</span>` : '')
+      // 해제(설명)가 있는 자료만 표시 (자료 항목에 note 를 적으면 나타남)
+      + (item.note ? `<span class="lb-label">해제</span>` + item.note.split('\n\n').map(b => `<span class="lb-note${b.includes('\n') ? ' verse' : ''}">${b}</span>`).join('') : '');
+    setInfo(false);
+    lbImg.classList.remove('loaded');
+    lbLoading.style.display = 'flex';
+    resetView();
+
+    const preload = new Image();
+    preload.onload = () => {
+      lbImg.src = item.full;
+      lbImg.alt = item.id;
+      requestAnimationFrame(() => {
+        lbImg.classList.add('loaded');
+        lbLoading.style.display = 'none';
+      });
+    };
+    preload.src = item.full;
+
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+    if(lastFocused) lastFocused.focus();
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if(e.target === lightbox || e.target === lbStage) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === '+' || e.key === '=') setScale(scale + 0.6);
+    if(e.key === '-' || e.key === '_') setScale(scale - 0.6);
+    if(e.key === '0') resetView();
+    if(e.key === 'i' || e.key === 'I'){ if(lbTitle.classList.contains('open')) setInfo(false); else { setInfo(true); infoPinned = true; } }
+  });
+
+  zoomInBtn.addEventListener('click', () => setScale(scale + 0.6));
+  zoomOutBtn.addEventListener('click', () => setScale(scale - 0.6));
+
+  // Click image: toggle between fit and 2.4x zoom, centered on click point
+  lbImg.addEventListener('click', (e) => {
+    const rect = lbStage.getBoundingClientRect();
+    const focal = { x: e.clientX - rect.left - rect.width/2, y: e.clientY - rect.top - rect.height/2 };
+    if(scale > minScale + 0.001){
+      resetView();
+    } else {
+      setScale(2.4, focal);
+    }
+  });
+
+  // Wheel zoom
+  lbStage.addEventListener('wheel', (e) => {
+    if(!lightbox.classList.contains('open')) return;
+    e.preventDefault();
+    const rect = lbStage.getBoundingClientRect();
+    const focal = { x: e.clientX - rect.left - rect.width/2, y: e.clientY - rect.top - rect.height/2 };
+    setScale(scale - e.deltaY * 0.0025, focal);
+  }, { passive:false });
+
+  // Drag to pan (mouse + touch)
+  lbImg.addEventListener('pointerdown', (e) => {
+    if(scale <= minScale + 0.001) return;
+    dragging = true;
+    dragStartX = e.clientX; dragStartY = e.clientY;
+    panStartX = panX; panStartY = panY;
+    lbStage.classList.add('grabbing');
+    lbImg.setPointerCapture(e.pointerId);
+  });
+  lbImg.addEventListener('pointermove', (e) => {
+    if(!dragging) return;
+    panX = panStartX + (e.clientX - dragStartX);
+    panY = panStartY + (e.clientY - dragStartY);
+    clampPan();
+    applyTransform();
+  });
+  ['pointerup','pointercancel','pointerleave'].forEach(ev => {
+    lbImg.addEventListener(ev, () => {
+      dragging = false;
+      lbStage.classList.remove('grabbing');
+    });
+  });
+
+  searchInput.addEventListener('input', () => {
+    searchQuery = searchInput.value;
+    searchbarEl.classList.toggle('has-text', searchQuery.trim().length > 0);
+    renderGrid();
+  });
+  searchClear.addEventListener('click', () => { clearSearch(); renderGrid(); });
+
+
+
+  // ---- 자료집 소개: 내용을 채우면 메인 화면 헤더 아래에 나타납니다 (비어 있으면 숨김) ----
+  const INTRO = {
+    letters: [
+      {
+            "title": "격려사",
+        "by": { "name": "정묵", "role": "동국대학교 불교학술원장, 대한불교조계종호계원장" },
+            "paras": [
+                  "경허노사와 그 제자인 만공선사는 오늘날 대부분의 한국스님들의 선조되시는 분입니다. 지난 2년 여간 덕숭총림과 동국대학교 불교학술원 전자불전연구소가 많이 노력해서 ⟪경허록⟫, ⟪만공법어⟫라는 큰 스님 두분의 어록이 재정비 되고 현대인이 읽기 쉽게 나왔습니다. 또한 자료집도 두 권이 나왔으니, 이 작업을 맡은 학자들의 수고로움은 말로 다할 수 없겠습니다. 그럼에도, 아직도 산재해 있는 두 분 노사와 관련된 사진자료들을 다 보여주지 못하고 사업이 끝나서 못내 아쉬움을 감출 수 없었습니다.",
+                  "전자불전연구소와 또 종회의 큰 소임을 맡고 계신 주경 의장스님이 연구소사업으로 사진사업을 지속하고 또 그 첫 번째 책으로 두 분 노사와 관련된 사진들을 일부나마 정리하여 낸다고 하니 반가운 마음이 무량합니다. 만공선사도 그러셨듯이, 사진이란 것이 모두 쓸데없는 것들이라 늘 일정한 시간이 되면 정리하는 것이 우리 불가(佛家)의 전통이라 여기고 살았습니다만, 학술원의 소임을 보면서 그런 자료들이 학계에서 이토록 중하게 쓰이는 걸 보니, 세상에 의미없이 존재하는 것이 없구나 싶습니다. 또 그런 역사적 자료들이 현세의 우리가 아니라 후대의 사람들에게 의미있는 것이란 소식을 들으니 귀하게 잘 보존해서 물려주어야겠다는 생각도 하게 됩니다.",
+                  "앞으로도 사진 자료들이 연구소에서 계속 나온다고 하니 마음을 다해서 능력 닿는데까지 지원하겠습니다. 앞으로는 글자 불사(佛事)뿐 아니라 사진 불사도 넉넉히 지어 불교를 공부하는 젊은 학승과 학자들이 좋은 자료들을 많이 공유하고 선학들의 걸어온 길을 잘 이어가기를 기원합니다."
+            ],
+            "sign": [
+                  "2025. 07. 01",
+                  "동국대학교 불교학술원장 正默"
+            ]
+      },
+      {
+            "title": "간행사",
+        "by": { "name": "주경", "role": "전자불전문화콘텐츠연구소장, 대한불교조계종중앙종회의장" },
+            "paras": [
+                  "전자불전연구소는 지난 2017년부터 2022년까지 5년여에 걸쳐 ‘한국 근현대불교문화사진아카이브’ 사업을 진행한 바 있습니다. 사업이 종료된 이후에도 자료 사진들이 추가적으로 발굴되고 있기에 우리 연구소는 지속적으로 업데이트 할 수 있는 ‘근현대불교사진 보유 DB’를 구축하게 되었습니다. 그리고 그 결과물을 모아서 작은 사진첩으로 기획하여 미니시리즈로 출간하게 되었습니다.",
+                  "또한 2022년부터는 한국 고승인 경허선사와 만공선사의 어록과 자료를 정비하는 사업을 약 2년 여에 걸쳐 진행하기도 했습니다. 이미 ‘신출경허만공자료집’을 통해 사업에서 수집했던 두 선사의 법필이나 자료들을 소개했습니다만, 미처 수록하지 못한 사진들이 있기에 미니시리즈의 첫번째 자료집으로 간행하게 되었습니다.",
+                  "특히 80년대 간행된 두 선사의 어록에 주요한 사진들이 있고 여기에 수덕사 근역성보관에서 관리하고 있던 사진들을 경허록만공법어편찬위원회에서 선별하여 정리했습니다. 경허법어와 만공법어의 전면에 수록된 사진들은 크기가 작고 화소가 작아서 뚜렷하지는 않으나 선학(先學)들이 정리해서 수록해 두었다는 점에서 큰 의미를 지닙니다. 다행히 지금 새로 발굴한 자료 일부가 당시의 사진과 일치하는 것을 발견하였고, 또 실물을 찾기 어려운 자료들도 사진으로나마 만날 수 있게 되었습니다. 이 모든 것은 바로 기록이 남아있기에 가능한 일이고, 그래서 얼마나 다행인가를 새삼 느낍니다.",
+                  "여기에 실린 대부분의 사진들은 1981년 경허법어, 1982년 만공법어에 수록된 것입니다. 즉 많은 사진들의 연대는 하한이 1982년입니다. 따라서 최소50여년 이상된 자료이므로 사진의 대상이 지금까지 남아있거나 새로 촬영한 사진이 있어도 비교할 수 있는 자료로서 가치가 있기에 수록하였습니다.",
+                  "앞으로 근현대불교사진 보유판 데이터베이스를 지속적으로 운영하며 채워나가고, 그 결과물을 미니시리즈로 발간할 계획입니다. 사진은 한 시대와 인물들의 객관적인 순간들을 담아서 당시의 상황을 있는 그대로 보여줍니다. 학계에 있어서도 또 역사에 있어서도 사진자료를 잘 정리하여 우리의 역사와 문화유산을 기록하고 기억하는 데 이 자료집 시리즈가 의미있는 보탬이 되기를 바랍니다."
+            ],
+            "sign": [
+                  "2025. 07. 01",
+                  "전자불전문화콘텐츠연구소장 宙耕"
+            ]
+      }
+    ],   // 격려사·간행사 등 (제목, 문단 배열, 서명)
+    aboutTitle: "경편위수집본 해제",
+    aboutBy: { name: "법진", role: "전자불전연구소 전임연구원, 경편위 간사" },
+    about: [
+      "전자불전문화콘텐츠연구소에서 수집한 근현대불교사진사업이 2023년 종료되었다. 연구소는 이 때 수집되지 못한 사진들을 보유(補遺)의 성격으로 DB를 구축하고 있다. 이를 일부 정리하여 첫번째로 선보이는 사진집은 경편위(경허록만공법어편찬위원회)수집본이다. 도합 194매로 파악된다.",
+      "본 수집본은 덕숭총림 수덕사와 전자불전연구소가 2년여에 걸쳐 진행한 사업의 결과물로 간행한 신출자료집에 실리지 않은 사진들이다. 특히 1981년 ⟪경허법어⟫에 실린 32장의 사진과 1982년에 ⟪만공법어⟫에 실린 28장을 추출하여 재구성하였다. 그 가운데는 현재 실물을 확인할 수 있는 대상도 있으며, 또 이번 작업을 통해 당시에 촬영된 대상과 근래에 촬영된 대상을 대조해볼 수 있다는 의미도 있을 것이다.",
+      "일련번호는 근현대불교사진보유 DB의 순번으로 일련번호 01-0000은 경허선사 관련사진으로, 02-0000는 만공선사 관련사진으로 구분하였으나 정리순서에 따라 엄밀하게 구분되지 않은 것도 있고, 누락번호도 있다."
+    ],     // 해제: 문단별 문자열 배열
+    credits: [
+      {
+            "title": "資料提供帙",
+            "rows": [
+                  [
+                        "",
+                        "自雲正默",
+                        "佛敎學術院"
+                  ],
+                  [
+                        "",
+                        "飛山宙耕",
+                        "電子佛典硏究所"
+                  ],
+                  [
+                        "",
+                        "統合大藏經",
+                        "ABC"
+                  ],
+                  [
+                        "",
+                        "近現代佛敎文化寫眞 EBTC 아카이브",
+                        ""
+                  ],
+                  [
+                        "",
+                        "鏡虛法語",
+                        "一九八一"
+                  ],
+                  [
+                        "",
+                        "滿空法語",
+                        "一九八二"
+                  ],
+                  [
+                        "",
+                        "修德寺槿域聖寶館",
+                        ""
+                  ],
+                  [
+                        "",
+                        "通度寺聖寶博物館",
+                        ""
+                  ],
+                  [
+                        "",
+                        "金智慧",
+                        "修德寺槿域聖寶館"
+                  ]
+            ]
+      },
+      {
+            "title": "寫眞撮影帙",
+            "rows": [
+                  [
+                        "",
+                        "金玟圭",
+                        "佛敎文化遺産硏究所"
+                  ],
+                  [
+                        "",
+                        "柳在相",
+                        "現代佛敎新聞忠淸支社"
+                  ],
+                  [
+                        "",
+                        "梁玹模",
+                        "일스튜디오"
+                  ]
+            ]
+      },
+      {
+            "title": "鏡虛錄滿空法語編纂實務委員會帙",
+            "rows": [
+                  [
+                        "實務委員長",
+                        "飛山宙耕",
+                        "曹溪宗中央宗會"
+                  ],
+                  [
+                        "學術理事",
+                        "文光",
+                        "佛敎文化硏究員"
+                  ],
+                  [
+                        "幹事",
+                        "法振",
+                        "電子佛典硏究所"
+                  ],
+                  [
+                        "涉外理事",
+                        "景完",
+                        "金一葉文化財團"
+                  ],
+                  [
+                        "弘報理事",
+                        "禪庵",
+                        "佛敎學術院"
+                  ],
+                  [
+                        "實務팀長",
+                        "朴仁錫",
+                        "佛敎學術院"
+                  ],
+                  [
+                        "學術委員",
+                        "李成洙",
+                        "佛敎新聞"
+                  ],
+                  [
+                        "學術委員",
+                        "李鎭玲",
+                        "東國譯經院"
+                  ],
+                  [
+                        "學術委員",
+                        "金玟圭",
+                        "佛敎文化財硏究所"
+                  ],
+                  [
+                        "學術委員",
+                        "金宣任",
+                        "大韓佛敎曹溪宗所"
+                  ],
+                  [
+                        "實務委員",
+                        "柳在相",
+                        "現代佛敎新聞忠淸支社"
+                  ]
+            ]
+      },
+      {
+            "title": "企劃製作帙",
+            "rows": [
+                  [
+                        "",
+                        "飛山宙耕",
+                        "電子佛典硏究所"
+                  ],
+                  [
+                        "",
+                        "法振",
+                        "電子佛典硏究所"
+                  ]
+            ]
+      }
+    ],   // 작업자: 묶음(제목, 줄들 [역할, 이름, 소속])
+    refs: [
+      "鏡虛惺牛禪師法語集刊行會. 1981. ⟪鏡虛法語⟫. 人物硏究所",
+      "경허록만공법어편찬위원회. 2024. ⟪경허록⟫, 불광출판사",
+      "경허록만공법어편찬위원회. 2024. ⟪만공법어⟫, 불광출판사",
+      "경허록만공법어편찬위원회. 2024. ⟪경허만공신출자료집1⟫, 불광출판사",
+      "경허록만공법어편찬위원회. 2024. ⟪경허만공신출자료집2⟫, 불광출판사",
+      "경허·만공 아카이브 “鏡虛滿空” (www.mirror-moon.org)",
+      "金惠公. ⟪滿空語錄⟫, 1968, 修德寺·大韓敎科書株式會社·禪學院",
+      "DB祥佛庫 (www.buddhapada.net)",
+      "滿空門徒會. 1982. ⟪滿空法語⟫. 德崇山修德寺能仁禪院",
+      "범어사성보박물관 (www.beomeomuseum.org)",
+      "불교기록문화유산아카이브 ABC (https://kabc.dongguk.edu)",
+      "석명정. 1991. ⟪경허집⟫. 극락선원",
+      "수덕사근역성보관 (www.sudeokmuseum.or.kr)",
+      "임종욱. 2023. 율사이자 화승이었던 호은 문성의 생애와 업적. ⟪문학사학철학⟫75. 한국불교사연구소",
+      "전자불전문화콘텐츠연구소 (www.iebtc.net)",
+      "통도사성보박물관 (www.tongdomuseum.or.kr)"
+    ]   // 참고문헌: 서지 한 줄씩 (www.… 또는 https://… 주소는 자동으로 링크가 됨)
+  };
+  (function(){
+    const sec = document.getElementById('intro'), nav = document.getElementById('introNav'), panel = document.getElementById('introPanel');
+    const linkify = t => t.replace(/(https?:\/\/[^\s)]+|www\.[^\s)]+)/g, u => `<a href="${u.startsWith('www') ? 'https://' + u : u}" target="_blank" rel="noopener">${u}</a>`);
+    const byline = b => `<div class="about-by"><b>${esc(b.name)}</b> | ${esc(b.role)}</div>`;
+    const esc = t => String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+    const tabs = [];
+    (INTRO.letters || []).forEach(L => tabs.push([L.title, () => `<h3 class="about-title">${esc(L.title)}</h3>` + (L.by ? byline(L.by) : '') + L.paras.map(t => `<p>${esc(t)}</p>`).join('') + (L.sign && L.sign.length ? '<div class="sign">' + L.sign.map(t => `<div>${esc(t)}</div>`).join('') + '</div>' : '')]));
+    if(INTRO.about.length) tabs.push(['해제', () => (INTRO.aboutTitle ? `<h3 class="about-title">${esc(INTRO.aboutTitle)}</h3>` : '') + (INTRO.aboutBy ? byline(INTRO.aboutBy) : '') + INTRO.about.map(t => `<p>${esc(t)}</p>`).join('')]);
+    if(INTRO.credits.length) tabs.push(['연화질', () => INTRO.credits.map(g => {
+      const hasRole = g.rows.some(x => x[0]);
+      return `<div class="credit-group">${g.sub ? `<div class="cg-sub">${esc(g.sub)}</div>` : ''}<h4>${esc(g.title)}</h4><div class="cg-rows ${hasRole ? 'c3' : 'c2'}">` +
+        g.rows.map(([role, name, org]) => (hasRole ? `<span class="cr">${esc(role)}</span>` : '') + `<span class="cn${org ? '' : ' wide'}">${esc(name)}</span>` + (org ? `<span class="co">${esc(org)}</span>` : '')).join('') + '</div></div>';
+    }).join('')]);
+    if(INTRO.refs.length) tabs.push(['참고문헌', () => '<ul>' + INTRO.refs.map(t => `<li>${linkify(esc(t))}</li>`).join('') + '</ul>']);
+    if(!tabs.length) return;
+    sec.hidden = false;
+    let cur = -1;
+    tabs.forEach(([label, html], i) => {
+      const b = document.createElement('button'); b.type = 'button'; b.textContent = label;
+      b.addEventListener('click', () => {
+        cur = (cur === i) ? -1 : i;
+        nav.querySelectorAll('button').forEach((x, k) => x.classList.toggle('active', k === cur));
+        panel.hidden = cur < 0; if(cur >= 0){ panel.innerHTML = html(); panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+      });
+      nav.appendChild(b);
+    });
+  })();
+
+  // ---- 좌우 라인 맞춤: 카드 열 수에 맞춰 콘텐츠 폭 계산 ----
+  (function(){
+    const wrapEl = document.querySelector('.wrap');
+    const CARD = 190, GAP = 8;
+    function fit(){
+      if(window.innerWidth <= 560){ wrapEl.style.removeProperty('--content-w'); return; }
+      const cs = getComputedStyle(wrapEl);
+      const avail = wrapEl.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      const n = Math.max(1, Math.floor((avail + GAP) / (CARD + GAP)));
+      wrapEl.style.setProperty('--content-w', (n * CARD + (n - 1) * GAP) + 'px');
+    }
+    fit();
+    window.addEventListener('resize', fit);
+  })();
+
+  // 보기 방식 전환
+  const viewToggleEl = document.getElementById('viewToggle');
+  function syncViewToggle(){
+    viewToggleEl.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.view === viewMode));
+  }
+  viewToggleEl.addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-view]');
+    if(!b || b.dataset.view === viewMode) return;
+    viewMode = b.dataset.view;
+    try{ localStorage.setItem('viewMode', viewMode); }catch(err){}
+    syncViewToggle();
+    renderGrid();
+  });
+  syncViewToggle();
+
+  document.getElementById('totalCount').textContent = `${ARTIFACTS.length}`;
+  renderGrid();
+</script>
+
+</body>
+</html>
